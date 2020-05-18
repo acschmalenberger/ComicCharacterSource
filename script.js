@@ -17,7 +17,8 @@ function characterDisplay (searchInput) {
 }
 
 $.ajax({
-  url: omdbQueryURL,
+  url: omdbQueryURL, var queryURL = "https://gateway.marvel.com:443/v1/public/characters?name=" + searchInput + "&apikey=" + APIKey;
+
   method: "GET"
 }).then(function(response) {
 

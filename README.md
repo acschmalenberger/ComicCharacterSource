@@ -2,8 +2,8 @@
 
 User Story:
 
-As a Marvel Universe Movie watcher
+As a person who would like to know more about Marvel Comics and Movies;
 
-I want comic themed recommendations 
+I want themed (movie or comic book) recommendations;
 
-So that I can fill the void of not having MCU movies to look forward too. 
+So that I can learn more about the entire MCU;
