@@ -2,7 +2,7 @@ var searchInput = "spider-man";
 var APIKey = "c67e2837f6363498c7e1e28ebcf18af5";
 var queryURL = "https://gateway.marvel.com:443/v1/public/characters?name=" + searchInput + "&apikey=" + APIKey;
   
-function characterDisplay (searchInput) {
+// function characterDisplay (searchInput) {
 
     // Querying the bandsintown api for the selected artist, the ?app_id parameter is required, but can equal anything
     $.ajax({
@@ -17,7 +17,7 @@ function characterDisplay (searchInput) {
 }
 
 $.ajax({
-  url: omdbQueryURL, var queryURL = "https://gateway.marvel.com:443/v1/public/characters?name=" + searchInput + "&apikey=" + APIKey;
+  url: omdbQueryURL,
 
   method: "GET"
 }).then(function(response) {
