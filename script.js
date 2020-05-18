@@ -15,3 +15,12 @@ function characterDisplay (searchInput) {
 
     });
 }
+
+$.ajax({
+  url: omdbQueryURL,
+  method: "GET"
+}).then(function(response) {
+
+  // Printing the entire object to console
+  console.log(response);
+})
