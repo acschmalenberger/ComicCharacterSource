@@ -1,27 +1,15 @@
-var searchInput = "spider-man";
-var APIKey = "c67e2837f6363498c7e1e28ebcf18af5";
-var queryURL = "https://gateway.marvel.com:443/v1/public/characters?name=" + searchInput + "&apikey=" + APIKey;
-  
-// function characterDisplay (searchInput) {
+var apiKey = "c67e2837f6363498c7e1e28ebcf18af5";
+var pKey = "a84d853b30be60dd520a25733e2558c974f2220d";
 
-    // Querying the bandsintown api for the selected artist, the ?app_id parameter is required, but can equal anything
-    $.ajax({
-      url: queryURL,
-      method: "GET"
-    }).then(function(response) {
-
-      // Printing the entire object to console
-      console.log(response);
-
-    });
-}
-
+function userInput (event) {
+var number = event.timestamp;
+var characterName = "thor";
 $.ajax({
-  url: omdbQueryURL,
-
+  url: "http://gateway.marvel.com/v1/public/characters?name=" + characterName + "ts=" + number + "&apikey=" + apiKey + "&hash=" + pKey,
   method: "GET"
 }).then(function(response) {
-
-  // Printing the entire object to console
   console.log(response);
-})
+});
+}
+
+userInput();
