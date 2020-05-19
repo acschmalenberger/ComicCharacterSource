@@ -53,3 +53,9 @@ form {
     box-sizing: content-box;
 
 }
+
+#text-block {
+
+    inline-size: fit-content;
+
+}
