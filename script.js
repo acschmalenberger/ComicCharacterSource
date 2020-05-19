@@ -15,13 +15,18 @@ function characterDisplay (searchInput) {
 
     });
 }
-
-$.ajax({
-  url: omdbQueryURL,
-  method: "GET"
   
-}).then(function(response) {
+  var omdbAPIKey:"3e9920ff";
+  var omdbQueryURL: "http://www.omdbapi.com/?apikey="+omdbAPIKey+
+  
+    $.ajax({
 
-  // Printing the entire object to console
-  console.log(response);
-})
+
+      url: omdbQueryURL,
+      method: "GET"
+
+    }).then(function(response) {
+
+      
+      console.log(response);
+    })
