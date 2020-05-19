@@ -3,6 +3,7 @@ var baseUrl = "https://superheroapi.com/api.php/";
 var characterName = "thor";
 var omdbAPIKey= "3e9920ff";
 var omdbQueryURL="https://www.omdbapi.com/?s=";
+//var omdbIMGQueryURL: "http://img.omdbapi.com/?s="
 
 
 //https://www.omdbapi.com/?s=thor&apikey=3e9920ff
