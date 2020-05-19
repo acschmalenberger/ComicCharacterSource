@@ -18,7 +18,11 @@ $.ajax({
   //checking to see if the API call is working
   console.log(searchResponse);
   //Dynamically creating a div to house the search results title
-    $("#body").empty();
+    
+  
+  
+  
+  /*$("#body").empty();
     var searchResultsOutputText = $("<h2>").text("Halt mortal, did you mean:");
     $("#body").append(searchResultsOutputText);
     
@@ -41,7 +45,11 @@ $.ajax({
         console.log(searchResponse.results[i].name);
       }
 
-});
+});*/
+
+
+
+
 }
 
 function userChoice (){
