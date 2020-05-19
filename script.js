@@ -48,11 +48,11 @@ function userChoice (){
 $.ajax({
   url: omdbQueryURL + characterName + "&apikey="+ omdbAPIKey,
   method: "GET"
-}).then(function(response) {
-  console.log(response);
-  clickResponse = //will be its own function
+}).then(function(clickResponse) {
+  console.log(clickResponse);
+  //clickResponse = //will be its own function
   //character picked on previous screen will be search for OMDB, activated by click
-  for (var j = 0; j<clickResponse.Search.length; j++)
+  for (var j = 0; j < clickResponse.Search.length; j++)
     //set up variables
     var movieImgUrl = clickResponse.Search[j].Poster
     var movieResultsDiv= $("<img>".attr("src", movieImgUrl));
