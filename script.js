@@ -55,7 +55,7 @@ $.ajax({
   for (var j = 0; j < clickResponse.Search.length; j++)
     //set up variables
     var movieImgUrl = clickResponse.Search[j].Poster
-    var movieResultsDiv= $("<img>".attr("src", movieImgUrl));
+    var movieResultsDiv= $("<img>").attr("src", movieImgUrl);
     movieResultsDiv.attr("alt", clickResponse.Search[j].Title)
     $("#body").append(movieResultsDiv);
     // console.log(movieResultsDiv)
@@ -68,7 +68,7 @@ $.ajax({
 }
 userChoice();
 
-userInput();
+//userInput();
 
 //This is to retrieve data for the search bar on the index page. 
 
