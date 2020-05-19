@@ -32,6 +32,19 @@ body {
 
 }
 
+form {
+
+    float: left;
+    margin-left: 600px;
+    background: ghostwhite;
+    height: fit-content;
+    margin-top: 9px;
+    /* margin-bottom: 5px; */
+    height: 45px !important;
+
+}
+
+
 .waves-effect {
 
     border: double;
