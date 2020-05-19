@@ -1,6 +1,6 @@
 var apiKey = "10206952649931006";
 var baseUrl = "https://superheroapi.com/api.php/";
-var characterName = "thor";
+var characterName = "spider-man";
 var omdbAPIKey= "3e9920ff";
 var omdbQueryURL="https://www.omdbapi.com/?s=";
 //var omdbIMGQueryURL: "http://img.omdbapi.com/?s="
@@ -21,36 +21,36 @@ $.ajax({
     $("#body").empty();
     var searchResultsOutputText = $("<h2>").text("Halt mortal, did you mean:");
     $("#body").append(searchResultsOutputText);
-    
+    var row = $("<div>").attr("class", "row");
+    $("#body").append(row);
+
       for (var i = 0; i < searchResponse.results.length; i++) {
         //create a div for each item in the search array
-        var searchResultDiv = $("<div>").attr("id", "searchResult");
+        var searchResultDiv = $("<div>").attr("id", "searchResult").attr("class", "col s4");
         //Creating a tilte for reach result in the search arry
         var charNameSearchResult = $("<h3>").text(searchResponse.results[i].name);
         //adding the title to the search array div
         searchResultDiv.append(charNameSearchResult);
         //creating an img for each character in the earch array with a data, alt, and src tag
         var imgURL = searchResponse.results[i].image.url; 
-        var searchResultImg = $("<img>").attr("src", imgURL);
-        searchResultImg.attr("data-name", searchResponse.results[i].name);
-        searchResultImg.attr("alt" , searchResponse.results[i].name + " image");
+        var searchResultImg = $("<img>").attr("src", imgURL).attr("style", "width: 100%").attr("data-name", searchResponse.results[i].name).attr("alt" , searchResponse.results[i].name + " image");
         //adding the img to the search array div
         searchResultDiv.append(searchResultImg);
-        $("#body"). append(searchResultDiv);
+        $(".row"). append(searchResultDiv);
 //test console log to CYA
         console.log(searchResponse.results[i].name);
       }
-
+      userChoice(characterName);
 });
 }
 
-function userChoice (){
+function userChoice (characterName){
 $.ajax({
   url: omdbQueryURL + characterName + "&apikey="+ omdbAPIKey,
   method: "GET"
 }).then(function(clickResponse) {
   console.log(clickResponse);
-  $("#body").empty();
+  //$("#body").empty();
 
   //clickResponse = //will be its own function
   //character picked on previous screen will be search for OMDB, activated by click
@@ -70,9 +70,9 @@ $.ajax({
   }
 });
 }
-userChoice();
 
-//userInput();
+
+userInput();
 
 //This is to retrieve data for the search bar on the index page. 
 
