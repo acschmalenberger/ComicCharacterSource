@@ -1,11 +1,14 @@
-var apiKey = "c67e2837f6363498c7e1e28ebcf18af5";
-var pKey = "a84d853b30be60dd520a25733e2558c974f2220d";
-
-function userInput (event) {
-var number = event.timestamp;
+var apiKey = "10206952649931006";
+var baseUrl = "https://superheroapi.com/api.php/";
 var characterName = "thor";
+
+//"https://superheroapi.com/api/10206952649931006/search/thor"
+
+
+function userInput () {
+
 $.ajax({
-  url: "http://gateway.marvel.com/v1/public/characters?name=" + characterName + "ts=" + number + "&apikey=" + apiKey + "&hash=" + pKey,
+  url: baseUrl + apiKey + "/search/" + characterName,
   method: "GET"
 }).then(function(response) {
   console.log(response);
