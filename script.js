@@ -50,20 +50,24 @@ $.ajax({
   method: "GET"
 }).then(function(clickResponse) {
   console.log(clickResponse);
+  $("#body").empty();
+
   //clickResponse = //will be its own function
   //character picked on previous screen will be search for OMDB, activated by click
-  for (var j = 0; j < clickResponse.Search.length; j++)
+  for (var j = 0; j < clickResponse.Search.length; j++) {
     //set up variables
-    var movieImgUrl = clickResponse.Search[j].Poster
-    var movieResultsDiv= $("<img>").attr("src", movieImgUrl);
-    movieResultsDiv.attr("alt", clickResponse.Search[j].Title)
-    $("#body").append(movieResultsDiv);
+    var movieImgUrl = clickResponse.Search[j].Poster;
+    var movieResultsIMG = $("<img>").attr("src", movieImgUrl);
+    
+    movieResultsIMG.attr("alt", clickResponse.Search[j].Title);
+    
+    $("#body").append(movieResultsIMG);
     // console.log(movieResultsDiv)
     //other variables that will be used and appended to movie object
     var movieTitle = clickResponse.Search[j].Title
 
     var movieRelease = clickResponse.Search[j].Year
-
+  }
 });
 }
 userChoice();
