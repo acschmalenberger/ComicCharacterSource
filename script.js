@@ -18,13 +18,46 @@ $.ajax({
     $("#body").append(searchResultsOutputText);
     
       for (var i = 0; i < searchResponse.results.length; i++) {
-        //create a div for each item in the search array 
+        //create a div for each item in the search array
+        var searchResultDiv = $("<div>").attr("id", "searchResult");
+        //Creating a tilte for reach result in the search arry
+        var charNameSearchResult = $("<h3>").text(searchResponse.results[i].name);
+        //adding the title to the search array div
+        searchResultDiv.append(charNameSearchResult);
+        //creating an img for each character in the earch array with a data, alt, and src tag
+        var imgURL = searchResponse.results[i].image.url; 
+        var searchResultImg = $("<img>").attr("src", imgURL);
+        searchResultImg.attr("data-name", searchResponse.results[i].name);
+        searchResultImg.attr("alt" , searchResponse.results[i].name + " image");
+        //adding the img to the search array div
+        searchResultDiv.append(searchResultImg);
+        $("#body"). append(searchResultDiv);
+//test console log to CYA
         console.log(searchResponse.results[i].name);
-      
-      
       }
 
 });
 }
 
 userInput();
+
+//This is to retrieve data for the search bar on the index page. 
+
+// $("#city-submitdata").on("click", function (event) {
+//   //prevents the page from refreshikng when a button is clicked  
+//   event.preventDefault();
+  
+//   // This line of code will grab the input from the textbox and sanitize it
+//       var cityInput = $("#cityInput").val().trim();
+//   //This takes the input from the form and addes it to an array that will be displayed
+//       inputCitiesArray.push(cityInput);
+//       localStorage.setItem("cityArray", JSON.stringify (inputCitiesArray));
+//   //after the data from the form is transfered into a usable object, the data is passed to the ajax call. 
+//       sanitizeCityInput(cityInput);  
+//   //calling the function that wil create the aside elements
+//       renderCityInfo(cityInput);
+  
+//     // Calling renderButtons which handles the processing of our movie array
+//     //renderButtons();
+//   });
+
