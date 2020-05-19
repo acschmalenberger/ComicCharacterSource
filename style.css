@@ -18,14 +18,17 @@ body {
 
 .nav-wrapper {
 
-    background-color: yellow;
+    background-image: url(https://www.patternpictures.com/wp-content/uploads/Shining-golden-bars-blocks-background-wallpaper-patternpictures-0220-365x243.png);
 
 }
 
 .brand-logo {
 
-    color: black !important;
+    border: double red;
+    background-color: black;
+    color: red !important;
     font-family: fantasy;
+    line-height: 1.97 !important;
 
 }
 
@@ -34,5 +37,6 @@ body {
     border: double;
     background: black;
     color: red;
+    box-sizing: content-box;
 
 }
