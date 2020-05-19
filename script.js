@@ -1,19 +1,18 @@
-var searchInput = "spider-man";
-var APIKey = "c67e2837f6363498c7e1e28ebcf18af5";
-var queryURL = "https://gateway.marvel.com:443/v1/public/characters?name=" + searchInput + "&apikey=" + APIKey;
-  
-function characterDisplay (searchInput) {
+var apiKey = "10206952649931006";
+var baseUrl = "https://superheroapi.com/api.php/";
+var characterName = "thor";
 
-    // Querying the bandsintown api for the selected artist, the ?app_id parameter is required, but can equal anything
-    $.ajax({
-      url: queryURL,
-      method: "GET"
-    }).then(function(response) {
+//"https://superheroapi.com/api/10206952649931006/search/thor"
 
-      // Printing the entire object to console
-      console.log(response);
 
-    });
+function userInput () {
+
+$.ajax({
+  url: baseUrl + apiKey + "/search/" + characterName,
+  method: "GET"
+}).then(function(response) {
+  console.log(response);
+});
 }
-  
 
+userInput();
