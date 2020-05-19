@@ -16,17 +16,4 @@ function characterDisplay (searchInput) {
     });
 }
   
-  var omdbAPIKey:"3e9920ff";
-  var omdbQueryURL: "http://www.omdbapi.com/?apikey="+omdbAPIKey+
-  
-    $.ajax({
 
-
-      url: omdbQueryURL,
-      method: "GET"
-
-    }).then(function(response) {
-
-      
-      console.log(response);
-    })
