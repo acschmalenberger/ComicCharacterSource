@@ -2,7 +2,7 @@ var apiKey = "10206952649931006";
 var baseUrl = "https://superheroapi.com/api.php/";
 var omdbAPIKey= "3e9920ff";
 var omdbQueryURL="https://www.omdbapi.com/?s=";
-//var omdbIMGQueryURL: "http://img.omdbapi.com/?s="
+
 
 
 //https://www.omdbapi.com/?s=thor&apikey=3e9920ff
@@ -21,7 +21,7 @@ $.ajax({
   
   
   
-  /*$("#body").empty();
+  $("#body").empty();
     var searchResultsOutputText = $("<h2>").text("Halt mortal, did you mean:");
     $("#body").empty();
     var searchResultsOutputText = $("<h2>").text("Halt mortal, select the character you meant:");
@@ -42,19 +42,14 @@ $.ajax({
         //adding the img to the search array div
         searchResultDiv.append(searchResultImg);
         $(".row"). append(searchResultDiv);
-//test console log to CYA
+        //test console log to CYA
         console.log(searchResponse.results[i].name);
       }
-
-});*/
-
-
 
 
       $("img").click(function (event) {
         event.preventDefault ();
         console.log($(this).attr("data-name"));
-           
         
         userChoice($(this).attr("data-name"));
       
@@ -70,11 +65,6 @@ $.ajax({
 // var charImg = $("<img>").attr("src", imgURL);
 // var charStats = $("<div>").attr("class", col);
 // row.apped(charInfoDiv, charImg,charStats);
-
-
-
-
-
 
 function userChoice (name) {
 // var name = $(this).attr("data-name");
@@ -101,51 +91,14 @@ console.log(name);
 
           
    
-     // console.log(movieResultsDiv)
-  //   //other variables that will be used and appended to movie object
-  //   var movieTitle = clickResponse.Search[j].Title
+     console.log(movieResultsDiv)
+    //other variables that will be used and appended to movie object
+    var movieTitle = clickResponse.Search[j].Title
 
-  //   var movieRelease = clickResponse.Search[j].Year
-  // }
-}};
+    var movieRelease = clickResponse.Search[j].Year
+  }
+};
 
-
-//userInput();
-// function userInput () {
-
-// $.ajax({
-//   url: baseUrl + apiKey + "/search/" + characterName,
-//   method: "GET"
-// }).then(function(searchResponse) {
-//   //checking to see if the API call is working
-//   console.log(searchResponse);
-//   //Dynamically creating a div to house the search results title
-//     $("#body").empty();
-//     var searchResultsOutputText = $("<h2>").text("Halt mortal, did you mean:");
-//     $("#body").append(searchResultsOutputText);
-//     var row = $("<div>").attr("class", "row");
-//     $("#body").append(row);
-
-//       for (var i = 0; i < searchResponse.results.length; i++) {
-//         //create a div for each item in the search array
-//         var searchResultDiv = $("<div>").attr("id", "searchResult").attr("class", "col s4");
-//         //Creating a tilte for reach result in the search arry
-//         var charNameSearchResult = $("<h3>").text(searchResponse.results[i].name);
-//         //adding the title to the search array div
-//         searchResultDiv.append(charNameSearchResult);
-//         //creating an img for each character in the earch array with a data, alt, and src tag
-//         var imgURL = searchResponse.results[i].image.url; 
-//         var searchResultImg = $("<img>").attr("src", imgURL).attr("style", "width: 100%").attr("data-name", searchResponse.results[i].name).attr("alt" , searchResponse.results[i].name + " image");
-//         //adding the img to the search array div
-//         searchResultDiv.append(searchResultImg);
-//         $(".row"). append(searchResultDiv);
-//       //test console log to CYA
-//         console.log(searchResponse.results[i].name);
-//         }
-//         // userChoice(characterName);
-//       });
-// }
-// onclick function
 function userChoice (){
 $.ajax({
   url: omdbQueryURL + characterName + "&apikey="+ omdbAPIKey,
