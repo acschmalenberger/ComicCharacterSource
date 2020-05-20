@@ -45,8 +45,18 @@ body {
     font: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
     line-height: 1.97 !important;
     font-size: 25px;
+    font-family: fantasy;
+    font-size: xx-large;
+    border: double;
+    background: black;
+    box-sizing: content-box;
+    height: fit-content !important;
+    padding-bottom: 5px !important;
+    padding-top: 5px !important;
+    margin-top: 6px;
 
 }
+
 
 .waves-effect {
 
