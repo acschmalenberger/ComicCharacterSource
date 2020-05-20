@@ -22,6 +22,17 @@ body {
 
 }*/
 
+@media screen and (max-width: 1040px) {
+#top-row {
+
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+
+}
+}
+
+
 .row {
 
     background-image: url(https://www.patternpictures.com/wp-content/uploads/Shining-golden-bars-blocks-background-wallpaper-patternpictures-0220-365x243.png);
