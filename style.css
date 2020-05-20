@@ -76,6 +76,7 @@ body {
 #text-block {
 
     inline-size: fit-content;
+}
 
 }
 
@@ -115,3 +116,8 @@ body {
 h3 {
     background-color: whitesmoke;
 }
+h3 {
+    background-color: whitesmoke;
+    text-align: center;
+}
+
