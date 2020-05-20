@@ -76,6 +76,21 @@ body {
 
 }
 
+.page-footer {
+
+    background: black;
+
+}
+
+.footer-copyright {
+
+    color: red !important;
+    font-size: larger;
+    font-family: cursive;
+    font-style: oblique;
+
+}
+
 h3 {
     background-color: whitesmoke;
 }
