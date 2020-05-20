@@ -32,20 +32,42 @@ $.ajax({
         searchResultDiv.append(charNameSearchResult);
         //creating an img for each character in the earch array with a data, alt, and src tag
         var imgURL = searchResponse.results[i].image.url; 
-        var searchResultImg = $("<img>").attr("src", imgURL).attr("style", "width: 100%").attr("data-name", searchResponse.results[i].name).attr("alt" , searchResponse.results[i].name + " image");
+        var searchResultImg = $("<img>").attr("src", imgURL).attr("class", "click").attr("style", "width: 100%").attr("data-name", searchResponse.results[i].name).attr("alt" , searchResponse.results[i].name + " image");
         //adding the img to the search array div
         searchResultDiv.append(searchResultImg);
         $(".row"). append(searchResultDiv);
 //test console log to CYA
         console.log(searchResponse.results[i].name);
       }
-      userChoice(characterName);
+
+    
 });
 }
 
-// function userChoice (characterName){
-// $.ajax({
-//   url: omdbQueryURL + characterName + "&apikey="+ omdbAPIKey,
+$(".click").click (function (event) {
+  event.preventDefault ();
+  console.log("spiderclick");
+    $("#body").empty();
+    var row = $("<div>").attr("class", "row");
+      $("#body").append(row);
+  var charinfoDiv = $("<div>").attr("class", "col");
+  var charImg = $("<img>").attr("src", imgURL);
+  var charStats = $("<div>").attr("class", col);
+  row.apped(charinfoDiv, charImg,charStats);
+  
+  //userChoice();
+
+}); 
+
+
+
+
+
+
+// function userChoice ("data-name") {
+// var name = $("data-name")
+//   $.ajax({
+//   url: omdbQueryURL + name + "&apikey="+ omdbAPIKey,
 //   method: "GET"
 // }).then(function(clickResponse) {
 //   console.log(clickResponse);
