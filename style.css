@@ -16,11 +16,18 @@ body {
 
 }
 
-.nav-wrapper {
+/*.nav-wrapper {
+
+    background-image: url(https://www.patternpictures.com/wp-content/uploads/Shining-golden-bars-blocks-background-wallpaper-patternpictures-0220-365x243.png);
+
+}*/
+
+.row {
 
     background-image: url(https://www.patternpictures.com/wp-content/uploads/Shining-golden-bars-blocks-background-wallpaper-patternpictures-0220-365x243.png);
 
 }
+
 
 .brand-logo {
 
@@ -29,20 +36,21 @@ body {
     color: red !important;
     font-family: fantasy;
     line-height: 1.97 !important;
+    font-size: xx-large;
 
 }
 
-form {
+/*form {
 
     float: left;
     margin-left: 800px;
     background: ghostwhite;
     height: fit-content;
     margin-top: 9px;
-    /* margin-bottom: 5px; */
+    margin-bottom: 5px;
     height: 45px !important;
 
-}
+}*/
 
 
 .waves-effect {
@@ -63,6 +71,8 @@ form {
 #search {
 
     padding-left: 1rem;
+    background: ghostwhite;
+    margin-top: 9px;
 
 }
 
