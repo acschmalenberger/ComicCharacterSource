@@ -32,34 +32,64 @@ $.ajax({
         searchResultDiv.append(charNameSearchResult);
         //creating an img for each character in the earch array with a data, alt, and src tag
         var imgURL = searchResponse.results[i].image.url; 
-        var searchResultImg = $("<img>").attr("src", imgURL).attr("class", "click").attr("style", "width: 100%").attr("data-name", searchResponse.results[i].name).attr("alt" , searchResponse.results[i].name + " image");
+        var searchResultImg = $("<img>").attr("src", imgURL).attr("class", "click").attr("style", "width: 100%").attr("data-name", searchResponse.results[i].name).attr("data-id", searchResponse.results[i].id).attr("alt" , searchResponse.results[i].name + " image");
         //adding the img to the search array div
         searchResultDiv.append(searchResultImg);
         $("#body>.row"). append(searchResultDiv);
 //test console log to CYA
-        console.log(searchResponse.results[i].name);
+        //console.log(searchResponse.results[i].name);
+        //console.log(searchResponse.results[i].id);
       }
 
       $("img").click(function (event) {
         event.preventDefault ();
-        console.log($(this).attr("data-name"));
-           
-        
+        //console.log($(this).attr("data-id"));
         userChoice($(this).attr("data-name"));
-      
+       var id = JSON.stringify ($(this).attr("data-id"));
+        
+       
+       charPowerInformation(id);
+
+        console.log(id + " on click");
       }); 
     
 });
 }
 
+
+//https://superheroapi.com/api/access-token/character-id/image
+
 // $("#body").empty();
 // var row = $("<div>").attr("class", "row");
 //   $("#body").append(row);
 // var charInfoDiv = $("<div>").attr("class", "col");
-// var charImg = $("<img>").attr("src", imgURL);
-// var charStats = $("<div>").attr("class", col);
 // row.apped(charInfoDiv, charImg,charStats);
+function charPowerInformation (id){
+  console.log(id+ " ajax pass");
+  $.ajax({
+    //h//ttps://superheroapi.com/api.php/10206952649931006/620/powerstats
+    idurl: baseUrl + apiKey +"/" + id + "/powerstats",
+    method: "GET"
+  }).then(function(idResponse) {
+  //add in a view of the specific character information 
+  $("#body").empty();
 
+  var charIdStats = $("<h2>").text("TEST");
+  $("#body").append(charIdStats);
+
+  var row = $("<div>").attr("class", "row");
+  $("#body").append(row);
+
+  var imgCol = $("<div>").attr("class", "col s4");
+  var statCol = $("<div"). attr("class", "col s8");
+  
+  var idImgURL = baseUrl + apiKey +"/" + id + "/image";
+  var charImg = $("<img>").attr("src", idImgURL);
+
+var charInfo = $("<p>").text(idResponse.name)
+statCol.append(charInfo);
+imgCol.append(charImg);
+})};
 
 
 
@@ -67,14 +97,14 @@ $.ajax({
 
 function userChoice (name) {
 // var name = $(this).attr("data-name");
-console.log(name);
+//console.log(name);
   $.ajax({
   url: omdbQueryURL + name + "&apikey="+ omdbAPIKey,
   method: "GET"
 }).then(function(clickResponse) {
-  console.log(this);
+  //console.log(this);
   
-  $("#body").empty();
+  //$("#body").empty();
   
 var row2 = $("<div>").attr("class", "row");
 $("#body").append(row2);
@@ -109,8 +139,8 @@ $("#body").append(row2);
 $("#scour").click(function (event) {
   //prevents the page from refreshikng when a button is clicked  
   event.preventDefault();
-  console.log("click");
-  console.log($("#search"));
+  // console.log("click");
+  // console.log($("#search"));
   // This line of code will grab the input from the form and sanitize it
     
   var characterName = $("#search").val().trim();
