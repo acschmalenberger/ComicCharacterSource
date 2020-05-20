@@ -72,28 +72,31 @@ console.log(name);
   url: omdbQueryURL + name + "&apikey="+ omdbAPIKey,
   method: "GET"
 }).then(function(clickResponse) {
-  console.log(clickResponse + "BOO");
+  console.log(this);
   $("#body").empty();
 
   //clickResponse = //will be its own function
   //character picked on previous screen will be search for OMDB, activated by click
    for (var j = 0; j < clickResponse.Search.length; j++) {
-   console.log(clickResponse.Search[i])};
-  //   //set up variables
-  //   var movieImgUrl = clickResponse.Search[j].Poster;
-  //   var movieResultsIMG = $("<img>").attr("src", movieImgUrl);
-    
-  //   movieResultsIMG.attr("alt", clickResponse.Search[j].Title);
-    
-  //   $("#body").append(movieResultsIMG);
-  //   // console.log(movieResultsDiv)
+        
+        console.log(clickResponse.Search[j]);
+      //   //set up variables
+        var movieImgUrl = clickResponse.Search[j].Poster;
+        var movieResultsIMG = $("<img>").attr("src", movieImgUrl);
+        
+         movieResultsIMG.attr("alt", clickResponse.Search[j].Title);
+        
+         $("#body").append(movieResultsIMG);
+
+          
+   
+     // console.log(movieResultsDiv)
   //   //other variables that will be used and appended to movie object
   //   var movieTitle = clickResponse.Search[j].Title
 
   //   var movieRelease = clickResponse.Search[j].Year
   // }
-});
-}
+}};
 
 
 //userInput();
