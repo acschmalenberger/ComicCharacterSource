@@ -45,12 +45,13 @@ $.ajax({
         event.preventDefault ();
         //console.log($(this).attr("data-id"));
         userChoice($(this).attr("data-name"));
-       var id = JSON.stringify ($(this).attr("data-id"));
         
-       
+       var id = JSON.stringify ($(this).attr("data-id"));
        charPowerInformation(id);
 
         console.log(id + " on click");
+      
+      
       }); 
     
 });
