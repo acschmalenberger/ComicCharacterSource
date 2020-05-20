@@ -18,7 +18,7 @@ $.ajax({
   console.log(searchResponse);
   //Dynamically creating a div to house the search results title
     $("#body").empty();
-    var searchResultsOutputText = $("<h2>").text("Halt mortal, did you mean:");
+    var searchResultsOutputText = $("<h2>").text("Halt mortal, select the character you meant:");
     $("#body").append(searchResultsOutputText);
     var row = $("<div>").attr("class", "row");
     $("#body").append(row);
@@ -40,64 +40,67 @@ $.ajax({
         console.log(searchResponse.results[i].name);
       }
 
+      $("img").click(function (event) {
+        event.preventDefault ();
+        console.log($(this).attr("data-name"));
+           
+        
+        userChoice($(this).attr("data-name"));
+      
+      }); 
     
 });
 }
 
-$(".click").click (function (event) {
-  event.preventDefault ();
-  console.log("spiderclick");
-    $("#body").empty();
-    var row = $("<div>").attr("class", "row");
-      $("#body").append(row);
-  var charinfoDiv = $("<div>").attr("class", "col");
-  var charImg = $("<img>").attr("src", imgURL);
-  var charStats = $("<div>").attr("class", col);
-  row.apped(charinfoDiv, charImg,charStats);
-  
-  //userChoice();
-
-}); 
+// $("#body").empty();
+// var row = $("<div>").attr("class", "row");
+//   $("#body").append(row);
+// var charInfoDiv = $("<div>").attr("class", "col");
+// var charImg = $("<img>").attr("src", imgURL);
+// var charStats = $("<div>").attr("class", col);
+// row.apped(charInfoDiv, charImg,charStats);
 
 
 
 
 
 
-// function userChoice ("data-name") {
-// var name = $("data-name")
-//   $.ajax({
-//   url: omdbQueryURL + name + "&apikey="+ omdbAPIKey,
-//   method: "GET"
-// }).then(function(clickResponse) {
-//   console.log(clickResponse);
-//   //$("#body").empty();
+function userChoice (name) {
+// var name = $(this).attr("data-name");
+console.log(name);
+  $.ajax({
+  url: omdbQueryURL + name + "&apikey="+ omdbAPIKey,
+  method: "GET"
+}).then(function(clickResponse) {
+  console.log(clickResponse + "BOO");
+  $("#body").empty();
 
-//   //clickResponse = //will be its own function
-//   //character picked on previous screen will be search for OMDB, activated by click
-//   for (var j = 0; j < clickResponse.Search.length; j++) {
-//     //set up variables
-//     var movieImgUrl = clickResponse.Search[j].Poster;
-//     var movieResultsIMG = $("<img>").attr("src", movieImgUrl);
+  //clickResponse = //will be its own function
+  //character picked on previous screen will be search for OMDB, activated by click
+   for (var j = 0; j < clickResponse.Search.length; j++) {
+   console.log(clickResponse.Search[i])};
+  //   //set up variables
+  //   var movieImgUrl = clickResponse.Search[j].Poster;
+  //   var movieResultsIMG = $("<img>").attr("src", movieImgUrl);
     
-//     movieResultsIMG.attr("alt", clickResponse.Search[j].Title);
+  //   movieResultsIMG.attr("alt", clickResponse.Search[j].Title);
     
-//     $("#body").append(movieResultsIMG);
-//     // console.log(movieResultsDiv)
-//     //other variables that will be used and appended to movie object
-//     var movieTitle = clickResponse.Search[j].Title
+  //   $("#body").append(movieResultsIMG);
+  //   // console.log(movieResultsDiv)
+  //   //other variables that will be used and appended to movie object
+  //   var movieTitle = clickResponse.Search[j].Title
 
-//     var movieRelease = clickResponse.Search[j].Year
-//   }
-// });
-// }
+  //   var movieRelease = clickResponse.Search[j].Year
+  // }
+});
+}
 
 
 //userInput();
 
 //This is to retrieve data for the search bar on the index page. 
 
-$("#comics").click (function (event) {
+$("#comics").click(function (event) {
   //prevents the page from refreshikng when a button is clicked  
   event.preventDefault();
   console.log("click");
