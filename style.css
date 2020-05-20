@@ -16,11 +16,6 @@ body {
 
 }
 
-/*.nav-wrapper {
-
-    background-image: url(https://www.patternpictures.com/wp-content/uploads/Shining-golden-bars-blocks-background-wallpaper-patternpictures-0220-365x243.png);
-
-}*/
 
 @media screen and (max-width: 1040px) {
 #top-row {
@@ -51,19 +46,6 @@ body {
 
 }
 
-/*form {
-
-    float: left;
-    margin-left: 800px;
-    background: ghostwhite;
-    height: fit-content;
-    margin-top: 9px;
-    margin-bottom: 5px;
-    height: 45px !important;
-
-}*/
-
-
 .waves-effect {
 
     border: double;
@@ -78,7 +60,7 @@ body {
     inline-size: fit-content;
 }
 
-}
+
 
 #search {
 
@@ -113,15 +95,8 @@ body {
 
 }
 
-<<<<<<< HEAD
-h3 {
-    background-color: whitesmoke;
-}
 h3 {
     background-color: whitesmoke;
     text-align: center;
 }
 
-=======
-}
->>>>>>> alyssa
