@@ -76,6 +76,16 @@ body {
 
 }
 
+.card-panel {
+
+    background: black;
+    color: red !important;
+    font-size: x-large;
+    font-family: cursive;
+    font-style: oblique;
+
+}
+
 .page-footer {
 
     background: black;
