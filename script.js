@@ -1,6 +1,5 @@
 var apiKey = "10206952649931006";
 var baseUrl = "https://superheroapi.com/api.php/";
-var characterName = "spider-man";
 var omdbAPIKey= "3e9920ff";
 var omdbQueryURL="https://www.omdbapi.com/?s=";
 //var omdbIMGQueryURL: "http://img.omdbapi.com/?s="
@@ -9,7 +8,7 @@ var omdbQueryURL="https://www.omdbapi.com/?s=";
 //https://www.omdbapi.com/?s=thor&apikey=3e9920ff
 //"https://superheroapi.com/api/10206952649931006/search/thor"
 
-function userInput () {
+function userInput (characterName) {
 
 $.ajax({
   url: baseUrl + apiKey + "/search/" + characterName,
@@ -44,55 +43,52 @@ $.ajax({
 });
 }
 
-function userChoice (characterName){
-$.ajax({
-  url: omdbQueryURL + characterName + "&apikey="+ omdbAPIKey,
-  method: "GET"
-}).then(function(clickResponse) {
-  console.log(clickResponse);
-  //$("#body").empty();
+// function userChoice (characterName){
+// $.ajax({
+//   url: omdbQueryURL + characterName + "&apikey="+ omdbAPIKey,
+//   method: "GET"
+// }).then(function(clickResponse) {
+//   console.log(clickResponse);
+//   //$("#body").empty();
 
-  //clickResponse = //will be its own function
-  //character picked on previous screen will be search for OMDB, activated by click
-  for (var j = 0; j < clickResponse.Search.length; j++) {
-    //set up variables
-    var movieImgUrl = clickResponse.Search[j].Poster;
-    var movieResultsIMG = $("<img>").attr("src", movieImgUrl);
+//   //clickResponse = //will be its own function
+//   //character picked on previous screen will be search for OMDB, activated by click
+//   for (var j = 0; j < clickResponse.Search.length; j++) {
+//     //set up variables
+//     var movieImgUrl = clickResponse.Search[j].Poster;
+//     var movieResultsIMG = $("<img>").attr("src", movieImgUrl);
     
-    movieResultsIMG.attr("alt", clickResponse.Search[j].Title);
+//     movieResultsIMG.attr("alt", clickResponse.Search[j].Title);
     
-    $("#body").append(movieResultsIMG);
-    // console.log(movieResultsDiv)
-    //other variables that will be used and appended to movie object
-    var movieTitle = clickResponse.Search[j].Title
+//     $("#body").append(movieResultsIMG);
+//     // console.log(movieResultsDiv)
+//     //other variables that will be used and appended to movie object
+//     var movieTitle = clickResponse.Search[j].Title
 
-    var movieRelease = clickResponse.Search[j].Year
-  }
-});
-}
+//     var movieRelease = clickResponse.Search[j].Year
+//   }
+// });
+// }
 
 
-userInput();
+//userInput();
 
 //This is to retrieve data for the search bar on the index page. 
 
-// $("#city-submitdata").on("click", function (event) {
-//   //prevents the page from refreshikng when a button is clicked  
-//   event.preventDefault();
-  
-//   // This line of code will grab the input from the textbox and sanitize it
-//       var cityInput = $("#cityInput").val().trim();
-//   //This takes the input from the form and addes it to an array that will be displayed
-//       inputCitiesArray.push(cityInput);
-//       localStorage.setItem("cityArray", JSON.stringify (inputCitiesArray));
-//   //after the data from the form is transfered into a usable object, the data is passed to the ajax call. 
-//       sanitizeCityInput(cityInput);  
-//   //calling the function that wil create the aside elements
-//       renderCityInfo(cityInput);
-  
-//     // Calling renderButtons which handles the processing of our movie array
-//     //renderButtons();
-//   });
+$("#comics").click (function (event) {
+  //prevents the page from refreshikng when a button is clicked  
+  event.preventDefault();
+  console.log("click");
+  console.log($("#search"));
+  // This line of code will grab the input from the form and sanitize it
+    
+  var characterName = $("#search").val().trim();
+  console.log(characterName);
+
+      //localStorage.setItem("cityArray", JSON.stringify (inputCitiesArray));
+  //after the data from the form is transfered into a usable object, the data is passed to the ajax call. 
+  userInput(characterName);
+  });
 
 
 
