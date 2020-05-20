@@ -25,7 +25,7 @@ $.ajax({
 
       for (var i = 0; i < searchResponse.results.length; i++) {
         //create a div for each item in the search array
-        var searchResultDiv = $("<div>").attr("id", "searchResult").attr("class", "col s4");
+        var searchResultDiv = $("<div>").attr("class", "searchResult col s4");
         //Creating a tilte for reach result in the search arry
         var charNameSearchResult = $("<h3>").text(searchResponse.results[i].name);
         //adding the title to the search array div
@@ -35,7 +35,7 @@ $.ajax({
         var searchResultImg = $("<img>").attr("src", imgURL).attr("class", "click").attr("style", "width: 100%").attr("data-name", searchResponse.results[i].name).attr("alt" , searchResponse.results[i].name + " image");
         //adding the img to the search array div
         searchResultDiv.append(searchResultImg);
-        $(".row"). append(searchResultDiv);
+        $("#body>.row"). append(searchResultDiv);
 //test console log to CYA
         console.log(searchResponse.results[i].name);
       }
@@ -73,8 +73,11 @@ console.log(name);
   method: "GET"
 }).then(function(clickResponse) {
   console.log(this);
+  
   $("#body").empty();
-
+  
+var row2 = $("<div>").attr("class", "row");
+$("#body").append(row2);
   //clickResponse = //will be its own function
   //character picked on previous screen will be search for OMDB, activated by click
    for (var j = 0; j < clickResponse.Search.length; j++) {
@@ -86,7 +89,7 @@ console.log(name);
         
          movieResultsIMG.attr("alt", clickResponse.Search[j].Title);
         
-         $("#body").append(movieResultsIMG);}
+         (row2).append(movieResultsIMG);}
 })};
           
    
