@@ -18,7 +18,7 @@ $.ajax({
   console.log(searchResponse);
   //Dynamically creating a div to house the search results title
     $("#body").empty();
-    var searchResultsOutputText = $("<h3>").text("Halt mortal, select the character you meant:");
+    var searchResultsOutputText = $("<h3>").text("Select a character");
     $("#body").append(searchResultsOutputText);
     var row = $("<div>").attr("class", "row");
     $("#body").append(row);
@@ -27,7 +27,7 @@ $.ajax({
         //create a div for each item in the search array
         var searchResultDiv = $("<div>").attr("class", "searchResult col s4");
         //Creating a tilte for reach result in the search arry
-        var charNameSearchResult = $("<h3>").text(searchResponse.results[i].name);
+        var charNameSearchResult = $("<h4>").text(searchResponse.results[i].name);
         //adding the title to the search array div
         searchResultDiv.append(charNameSearchResult);
         //creating an img for each character in the earch array with a data, alt, and src tag
