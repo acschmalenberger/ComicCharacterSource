@@ -121,11 +121,7 @@ $.ajax({
           var p7 = $("<p>").text("First Apperence: " + searchResponse.results[aV].biography["first-appearance"]);
           statCol.append(pA, p1, d1, p2, d2, p3, d3, p4, d4, p5, d5, p6, d6, p7);
           imgCol.append(charImg);
-      
-      
-      
-      
-      
+
         })})};
 
 
