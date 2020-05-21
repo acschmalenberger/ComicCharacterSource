@@ -14,10 +14,9 @@ $.ajax({
   url: baseUrl + apiKey + "/search/" + characterName,
   method: "GET"
 }).then(function(searchResponse) {
-  //checking to see if the API call is working
   if (searchResponse.response === "success") {
   
-  console.log(searchResponse.response);
+  console.log(searchResponse);
   //Dynamically creating a div to house the search results title
     $("#body").empty();
     var searchResultsOutputText = $("<h3>").text("Select a character");
@@ -70,7 +69,7 @@ $.ajax({
           var charImg = $("<img>").attr("src", searchResponse.results[aV].image.url).attr("style", "width: 100%");
         
           //Need to finish character Bio. Check on bracket notation
-          var pA = $("<p>").attr("id", "styling").text("Full Name: " + searchResponse.results[aV].powerstats.biography);
+          var pA = $("<p>").attr("id", "styling").text("Full Name: " + searchResponse.results[aV].biography["full-name"]);
 
 
         //   <div class="progress blue lighten-4 tooltipped" data-position="top" data-tooltip="Progress was at 50% when tested">
@@ -119,7 +118,7 @@ $.ajax({
           //var p5 = $("<p>").attr("id", "slider5").text("Power: " + searchResponse.results[aV].powerstats.power);
           //var p6 = $("<p>").attr("id", "slider6").text("Combat: " + searchResponse.results[aV].powerstats.combat);
           //Need to finish character Bio. Check on bracket notation
-          var p7 = $("<p>").text("First Apperence: " + searchResponse.results[aV].powerstats.biography);
+          var p7 = $("<p>").text("First Apperence: " + searchResponse.results[aV].biography["first-appearance"]);
           statCol.append(pA, p1, d1, p2, d2, p3, d3, p4, d4, p5, d5, p6, d6, p7);
           imgCol.append(charImg);
       
