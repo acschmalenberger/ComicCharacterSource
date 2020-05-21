@@ -2,9 +2,17 @@ var apiKey = "10206952649931006";
 var baseUrl = "https://superheroapi.com/api.php/";
 var omdbAPIKey= "3e9920ff";
 var omdbQueryURL="https://www.omdbapi.com/?s=";
+var omdbIDURL = " http://www.omdbapi.com/?i=";
+
+function renderCharCard (attrName, searchResponse, aV){
+  var p4 = $("<p>").text(attrName); 
+          var durNum = searchResponse.results[aV].powerstats[attrName.toLowerCase()] +"%";
+          var d4 = $("<div>").attr("class", "progress blue lighten-4 tooltipped").attr("data-position", "top")
+          var d4a = $("<div>").attr("class", "determinate blue").css("width", durNum).text(searchResponse.results[aV].powerstats[attrName.toLowerCase()]+"%");
+          d4.append(d4a);
+          return {body: d4, p: p4};
+}
 //var omdbIMGQueryURL: "http://img.omdbapi.com/?s="
-
-
 //https://www.omdbapi.com/?s=thor&apikey=3e9920ff
 //"https://superheroapi.com/api/10206952649931006/search/thor"
 
@@ -75,58 +83,20 @@ $.ajax({
         //   <div class="progress blue lighten-4 tooltipped" data-position="top" data-tooltip="Progress was at 50% when tested">
 				// 	<span>Progress</span>
 				// 	<div class="determinate blue" style="width: 50%; animation: grow 2s;">50%</div>
-				// </div>
-          var p1 = $("<p>").text("Intelligence: "); 
-          var intNum = searchResponse.results[aV].powerstats.intelligence +"%";
-          var d1 = $("<div>").attr("class", "progress blue lighten-4 tooltipped").attr("data-position", "top");
-          var d1a = $("<div>").attr("class", "determinate blue").css("width", intNum).text(searchResponse.results[aV].powerstats.intelligence+"%");
-          
-          d1.append(d1a);
-          
-          var p2 = $("<p>").text("Strength: "); 
-          var strNum = searchResponse.results[aV].powerstats.strength +"%";
-          var d2 = $("<div>").attr("class", "progress blue lighten-4 tooltipped").attr("data-position", "top")
-          var d2a = $("<div>").attr("class", "determinate blue").css("width", strNum).text(searchResponse.results[aV].powerstats.strength+"%");
-          d2.append(d2a);
+        // </div>
+        
+          var {body:d1, p:p1} = renderCharCard("Intelligence", searchResponse, aV);
+          var {body:d2, p:p2} = renderCharCard("Strength", searchResponse, aV);
+          var {body:d3, p:p3} = renderCharCard("Speed", searchResponse, aV);
+          var {body:d4, p:p4} = renderCharCard("Durability", searchResponse, aV);
+          var {body:d5, p:p5} = renderCharCard("Power", searchResponse, aV);
+          var {body:d6, p:p6} = renderCharCard("Combat", searchResponse, aV);
 
-          var p3 = $("<p>").text("Speed: "); 
-          var speNum = searchResponse.results[aV].powerstats.speed +"%";
-          var d3 = $("<div>").attr("class", "progress blue lighten-4 tooltipped").attr("data-position", "top")
-          var d3a = $("<div>").attr("class", "determinate blue").css("width", speNum).text(searchResponse.results[aV].powerstats.speed+"%");
-          d3.append(d3a);
-
-          var p4 = $("<p>").text("Durability: "); 
-          var durNum = searchResponse.results[aV].powerstats.durability +"%";
-          var d4 = $("<div>").attr("class", "progress blue lighten-4 tooltipped").attr("data-position", "top")
-          var d4a = $("<div>").attr("class", "determinate blue").css("width", durNum).text(searchResponse.results[aV].powerstats.durability+"%");
-          d4.append(d4a);
-
-          var p5 = $("<p>").text("Power: "); 
-          var powNum = searchResponse.results[aV].powerstats.power +"%";
-          var d5 = $("<div>").attr("class", "progress blue lighten-4 tooltipped").attr("data-position", "top")
-          var d5a = $("<div>").attr("class", "determinate blue").css("width", powNum).text(searchResponse.results[aV].powerstats.power+"%");
-          d5.append(d5a);
-
-          var p6 = $("<p>").text("Combat: "); 
-          var comNum = searchResponse.results[aV].powerstats.combat +"%";
-          var d6 = $("<div>").attr("class", "progress blue lighten-4 tooltipped").attr("data-position", "top")
-          var d6a = $("<div>").attr("class", "determinate blue").css("width", comNum).text(searchResponse.results[aV].powerstats.combat+"%");
-          d6.append(d6a);
-          //var p2 = $("<p>").attr("id", "slider2").text("Strength: " + searchResponse.results[aV].powerstats.strength);
-          //var p3 = $("<p>").attr("id", "slider3").text("Speed: " + searchResponse.results[aV].powerstats.speed);
-          //var p4 = $("<p>").attr("id", "slider4").text("Durability: " + searchResponse.results[aV].powerstats.durability);
-          //var p5 = $("<p>").attr("id", "slider5").text("Power: " + searchResponse.results[aV].powerstats.power);
-          //var p6 = $("<p>").attr("id", "slider6").text("Combat: " + searchResponse.results[aV].powerstats.combat);
-          //Need to finish character Bio. Check on bracket notation
           var p7 = $("<p>").text("First Apperence: " + searchResponse.results[aV].biography["first-appearance"]);
           statCol.append(pA, p1, d1, p2, d2, p3, d3, p4, d4, p5, d5, p6, d6, p7);
           imgCol.append(charImg);
 
         })})};
-
-
-
-
 
 function userChoice (name) {
 // var name = $(this).attr("data-name");
@@ -142,14 +112,29 @@ $("#body").append(row2);
   //clickResponse = //will be its own function
   //character picked on previous screen will be search for OMDB, activated by click
    for (var j = 0; j < clickResponse.Search.length; j++) {
-        
+        //var j = 0
         console.log(clickResponse.Search[j])
       //set up variables
         var movieImgUrl = clickResponse.Search[j].Poster;
-        var movieResultsIMG = $("<img>").attr("src", movieImgUrl).attr("alt", clickResponse.Search[j].Title).attr("style", "width: 25%");
+        var imdbID = clickResponse.Search[j].imdbID
         
-         row2.append(movieResultsIMG);
-        }})};
+        console.log(omdbIDURL + imdbID + "&apikey="+ omdbAPIKey);
+
+    $.ajax({
+      url: omdbIDURL + imdbID + "&apikey="+ omdbAPIKey,
+      method: "GET"
+    }).then(function(idResponse) {
+      
+      console.log(idResponse);
+      if (idResponse.Genre.includes("Action"))
+        {
+          var movieResultsIMG = $("<img>").attr("src", movieImgUrl).attr("alt", clickResponse.Search[j].Title).attr("data-imdbID", clickResponse.Search[j].imdbID).attr("style", "width: 25%");
+          row2.append(movieResultsIMG);
+        } 
+      else {console.log("bad")};
+    })}
+  })     
+};
           
    
      // console.log(movieResultsDiv)
