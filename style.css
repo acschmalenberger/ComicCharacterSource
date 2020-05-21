@@ -18,6 +18,12 @@ body {
 
 }
 
+.animate__animated.animate__bounceInLeft {
+
+    --animate-duration: 2.5s;
+  
+}
+
 
 @media screen and (max-width: 1040px) {
 #top-row {
@@ -27,6 +33,18 @@ body {
     align-items: center;
 
 }
+}
+
+@media screen and (max-width: 600px) and (min-width: 300px) {
+
+    #top-row{
+        flex-direction: column;
+     }
+     
+     #top-col{ 
+        width: 100%;
+     }
+
 }
 
 
@@ -42,8 +60,7 @@ body {
     border: double red;
     background-color: #fdd835;
     color: red !important;
-    font: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
-    line-height: 1.97 !important;
+    font: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 25px;
     font-family: fantasy;
     font-size: xx-large;
@@ -54,6 +71,7 @@ body {
     padding-bottom: 5px !important;
     padding-top: 5px !important;
     margin-top: 6px;
+    margin-bottom: 6px;
 
 }
 
