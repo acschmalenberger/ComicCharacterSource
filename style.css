@@ -1,66 +1,186 @@
 body {
 
-    background-image: url(https://lh3.googleusercontent.com/proxy/VgU7MtYMQsM1H6380zEygI3O21rqOwO3-e8AcjFn-GPnXCwG9AAf-Nj6bodKqFse0RFkpVyB0SB96QwsSjPanBMBkgtPAAwwjaGMEgfk1D9pAh2ZBu7f_A37BADOc8nvDmmYlSef);
+    background-image: url(./assets/comic-dots-01.png);
+
 
 }
 
 
 .jumbotron {
-
     padding: 1rem;
-    font-family: cursive;
-    font-style: oblique;
+    font-family: 'Bungee Shade', cursive;
     text-align: center;
-    background-color: black;
+    background-image: url(./assets/comic-yellow.png);
+    background-size: 100%;
     color: red;
 
 }
 
-.nav-wrapper {
+.animate__animated.animate__bounceInLeft {
 
-    background-image: url(https://www.patternpictures.com/wp-content/uploads/Shining-golden-bars-blocks-background-wallpaper-patternpictures-0220-365x243.png);
+    --animate-duration: 2.5s;
 
 }
+
+
+@media screen and (max-width: 1040px) {
+#top-row {
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+
+}
+}
+
+@media screen and (max-width: 600px) and (min-width: 300px) {
+
+    #top-row{
+        flex-direction: column;
+    }
+    #top-col{ 
+        width: 100%;
+    }
+
+}
+
+
+.row {
+    border: solid 5px;
+    background-color: white;
+    font-family: 'Anton', sans-serif;
+}
+
 
 .brand-logo {
 
     border: double red;
-    background-color: black;
-    color: red !important;
-    font-family: fantasy;
-    line-height: 1.97 !important;
-
-}
-
-form {
-
-    float: left;
-    margin-left: 800px;
-    background: ghostwhite;
+    color: red;
+    background-color: white;
+    line-height: 1.97;
+    font-size: 25px;
+    box-sizing: content-box;
     height: fit-content;
-    margin-top: 9px;
-    /* margin-bottom: 5px; */
-    height: 45px !important;
+    padding-bottom: 2px; 
+    padding-top: 2px; 
+    margin-top: 10px;
+    font: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 25px;
+    box-sizing: content-box;
+    height: fit-content !important;
+    padding-bottom: 5px !important;
+    padding-top: 5px !important;
+    margin-top: 12px;
+
 
 }
-
 
 .waves-effect {
-
+    font-size: 25px;
     border: double;
-    background: black;
+    background: white;
+    font-family: 'Anton', sans-serif;
     color: red;
     box-sizing: content-box;
+    padding-bottom: 7px; 
+    padding-top: 7px; 
+
 
 }
 
-<<<<<<< HEAD
 #text-block {
-
     inline-size: fit-content;
+    margin: 0;
+}
 
-=======
-h3 {
-    background-color: whitesmoke;
->>>>>>> 2e051ef8fecfeafb85390572bb5f7c3c5c26cadc
+
+
+#search {
+    padding-left: 1rem;
+    background: white;
+    margin-top: 9px;
+
+}
+
+.card-panel {
+    background: white;
+    color: red !important;
+    font-size: x-large;
+    font-style: oblique;
+    font-family: 'Anton', sans-serif;
+    margin: 0;
+
+}
+
+.page-footer {
+    background-color: black;
+
+}
+
+.footer-copyright {
+    color: white;
+    background-color: black;
+    font-size: 30px;
+    font-family: 'Black Ops One', cursive;
+    font-style: oblique;
+}
+h3,
+.halt-text{
+    font-family: 'Black Ops One', cursive;
+    text-align: center;  
+    color: #fdd835;
+    background:white;
+    padding:5px;
+    border: solid 5px;
+    border-color: black;
+}
+
+.determinate {
+    width: 0;
+    transition: width 1s ease-in-out;
+    padding: 4px;
+    position: relative;
+    color: #fff;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.searchFailImg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.progress {
+height: 30px;
+}
+
+.row2{
+    height: 100%
+}
+.movieContent{
+    font-family:'Anton', sans-serif;
+    font-size: 18px;
+}
+
+
+h4 {
+
+    font-family: 'Anton', sans-serif;;
+    text-align: center;
+    text-decoration: underline;
+
+}
+
+#styling {
+
+    font-family: 'Black Ops One', cursive;
+
+}
+
+#name {
+
+    font-family: 'Black Ops One', cursive;
+    padding-left: 11.3px;
+    text-decoration: underline;
+
 }

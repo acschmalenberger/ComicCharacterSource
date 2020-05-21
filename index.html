@@ -6,59 +6,81 @@
     <title>Comic Character Source</title>    
     
     <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Black+Ops+One&family=Bungee+Shade&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
 
 </head>
 <body>
 
     <div class="jumbotron">
-        <h1>Comic Character Source</h1>
+        <h1 class="animate__animated animate__bounceInLeft">Comic Character Source</h1>
     </div>
 
-    <nav>
-        <div class="nav-wrapper">
-          <a href="#!" class="brand-logo">Comic Character Source</a>
-            <form>
-              <div class="input-field">
-                <input id="search" type="search" required>
-                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-              </div>
-            </form>
-          <ul class="right hide-on-med-and-down">
-            <li><a class="waves-effect waves-light btn" id="movies">Movies</a></li>
-            <li><a class="waves-effect waves-light btn" id="comics">Comics</a></li>
-          </ul>
-        </div>
-      </nav>
 
 
 
+
+
+    <div class="row" id="top-row">
+
+      <div class="col s4" id="top-col">
+
+        <a class="brand-logo btn" href="./index.html">Character Search: </a>
+        
+      </div>
+      <div class="col s4" id="top-col">
+
+        <input id="search" type="search" required>
+        <label class="label-icon" for="search"></label>
+
+      </div>
+      <div class="col s4" id="top-col">
+
+        <ul class="right">
+          <li><a class="waves-effect waves-light btn" id="scour">Scour Our Resources</a></li>
+        
+        </ul>
+
+      </div>
+
+    </div>
 
       <div class="container" id="body">
 
 
         <div class="row">
-          <div class="col s12 m5" id="text-block">
-            <div class="card-panel">
-              <span class="black-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id voluptatem quisquam maiores consequatur perspiciatis. Dolor cumque cum, sit modi voluptatum quo ex nobis commodi quod officiis? Reiciendis doloremque praesentium eligendi.
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae, iure. Alias dolor sit necessitatibus tempora explicabo ipsum asperiores aliquam! Maxime tenetur delectus optio asperiores architecto earum eveniet, enim iste accusantium.
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae, iure. Alias dolor sit necessitatibus tempora explicabo ipsum asperiores aliquam! Maxime tenetur delectus optio asperiores architecto earum eveniet, enim iste accusantium.
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae, iure. Alias dolor sit necessitatibus tempora explicabo ipsum asperiores aliquam! Maxime tenetur delectus optio asperiores architecto earum eveniet, enim iste accusantium.
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae, iure. Alias dolor sit necessitatibus tempora explicabo ipsum asperiores aliquam! Maxime tenetur delectus optio asperiores architecto earum eveniet, enim iste accusantium.
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae, iure. Alias dolor sit necessitatibus tempora explicabo ipsum asperiores aliquam! Maxime tenetur delectus optio asperiores architecto earum eveniet, enim iste accusantium.
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae, iure. Alias dolor sit necessitatibus tempora explicabo ipsum asperiores aliquam! Maxime tenetur delectus optio asperiores architecto earum eveniet, enim iste accusantium.
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae, iure. Alias dolor sit necessitatibus tempora explicabo ipsum asperiores aliquam! Maxime tenetur delectus optio asperiores architecto earum eveniet, enim iste accusantium.
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae, iure. Alias dolor sit necessitatibus tempora explicabo ipsum asperiores aliquam! Maxime tenetur delectus optio asperiores architecto earum eveniet, enim iste accusantium.
-              </span>
-            </div>
+          <div class="col s12 m5 card-panel black-text" id="text-block">
+
+            <p>Welcome to “Comic Character Source,” your number one spot to get the cinematic and literary sources for all of your favorite comic book characters! 
+</p> 
+            <p>All you have to do is type in the name of the character you would like to view the source material for and press the button “scour our resources”, then you will be given a list of options. Just click on the character that most closely matches your desired result, and you will be presented with an array of different comics/movies/tv shows that character has been in. 
+</p>
+            <p>Once you have accomplished your goal, you can click on the “character source” button to take you back to this home screen. 
+</p> 
+            <p>And remember, “With great power, comes great responsibility.”
+</p>
+
           </div>
         </div>
-
-
       </div>
 
 
+      
+
+
+
+
+      <footer class="page-footer">
+        <div class="footer-copyright">
+          <div class="container">
+
+            “The pleasure of reading a story and wondering what will come next for the hero is a pleasure that has lasted for centuries and, I think, will always be with us.” - Stan Lee
+
+          </div>
+        </div>
+      </footer>
 
       
 
@@ -67,5 +89,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./script.js"></script>
-</div>
+    </body>
 </html>
