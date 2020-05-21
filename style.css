@@ -172,3 +172,11 @@ h4 {
     font-family: 'Black Ops One', cursive;
 
 }
+
+#name {
+
+    font-family: 'Black Ops One', cursive;
+    text-align: center;
+    text-decoration: underline;
+
+}
