@@ -18,6 +18,12 @@ body {
 
 }
 
+.animate__animated.animate__bounceInLeft {
+
+    --animate-duration: 2.5s;
+  
+}
+
 
 @media screen and (max-width: 1040px) {
 #top-row {
@@ -27,6 +33,12 @@ body {
     align-items: center;
 
 }
+}
+
+@media screen and (max-width: 600px) and (min-width: 300px) {
+
+
+
 }
 
 
@@ -42,7 +54,7 @@ body {
     border: double red;
     background-color: #fdd835;
     color: red !important;
-    font: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+    font: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     line-height: 1.97 !important;
     font-size: 25px;
     font-family: fantasy;
