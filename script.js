@@ -15,7 +15,9 @@ $.ajax({
   method: "GET"
 }).then(function(searchResponse) {
   //checking to see if the API call is working
-  console.log(searchResponse);
+  if (searchResponse.response === "success") {
+  
+  console.log(searchResponse.response);
   //Dynamically creating a div to house the search results title
     $("#body").empty();
     var searchResultsOutputText = $("<h3>").text("Select a character");
@@ -36,11 +38,17 @@ $.ajax({
         var searchResultImg = $("<img>").attr("src", imgURL).attr("class", "click").attr("style", "width: 100%").attr("data-name", searchResponse.results[i].name).attr("data-arrayValue", num).attr("data-id", searchResponse.results[i].id).attr("alt" , searchResponse.results[i].name + " image");
         //adding the img to the search array div
         searchResultDiv.append(searchResultImg);
-        $("#body>.row"). append(searchResultDiv);
+        $("#body>.row").append(searchResultDiv);
         //test console log to CYA
         //console.log(searchResponse.results[i].name);
         //console.log(searchResponse.results[i].id);
-      }
+      }}
+      else{
+        $("#body>.row").empty();
+
+        var stopImg = $("<img>").attr("src", "./assets/Stop.png").attr("class", "searchFailImg");
+        $("#body>.row").append(stopImg);
+      };
 
       $("img").click(function (event) {
         event.preventDefault ();
