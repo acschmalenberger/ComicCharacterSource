@@ -113,3 +113,12 @@ h3 {
     text-align: center;
 }
 
+.determinate {
+    width: 0;
+    transition: width 1s ease-in-out;
+    padding: 4px;
+    position: relative;
+    color: #fff;
+    text-align: right;
+    white-space: nowrap;
+}
