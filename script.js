@@ -63,7 +63,7 @@ $.ajax({
         //var row = $("<div>").attr("class", "row");      
         var imgCol = $("<div>").attr("class", "col s4");
         var statCol = $("<div>"). attr("class", "col s8");
-        var charIdName = $("<h2>").text(searchResponse.results[aV].name);      
+        var charIdName = $("<h2>").attr("id", "name").text(searchResponse.results[aV].name);      
         $("#body>.row").append(charIdName, imgCol, statCol);
         //var idImgURL = baseUrl + apiKey +"/" + id + "/image";
           var charImg = $("<img>").attr("src", searchResponse.results[aV].image.url).attr("style", "width: 100%");
@@ -76,38 +76,38 @@ $.ajax({
 				// 	<span>Progress</span>
 				// 	<div class="determinate blue" style="width: 50%; animation: grow 2s;">50%</div>
 				// </div>
-          var p1 = $("<p>").text("Intelligence: "); 
+          var p1 = $("<p>").attr("id", "styling").text("Intelligence: "); 
           var intNum = searchResponse.results[aV].powerstats.intelligence +"%";
           var d1 = $("<div>").attr("class", "progress blue lighten-4 tooltipped").attr("data-position", "top");
           var d1a = $("<div>").attr("class", "determinate blue").css("width", intNum).text(searchResponse.results[aV].powerstats.intelligence+"%");
           
           d1.append(d1a);
           
-          var p2 = $("<p>").text("Strength: "); 
+          var p2 = $("<p>").attr("id", "styling").text("Strength: "); 
           var strNum = searchResponse.results[aV].powerstats.strength +"%";
           var d2 = $("<div>").attr("class", "progress blue lighten-4 tooltipped").attr("data-position", "top")
           var d2a = $("<div>").attr("class", "determinate blue").css("width", strNum).text(searchResponse.results[aV].powerstats.strength+"%");
           d2.append(d2a);
 
-          var p3 = $("<p>").text("Speed: "); 
+          var p3 = $("<p>").attr("id", "styling").text("Speed: "); 
           var speNum = searchResponse.results[aV].powerstats.speed +"%";
           var d3 = $("<div>").attr("class", "progress blue lighten-4 tooltipped").attr("data-position", "top")
           var d3a = $("<div>").attr("class", "determinate blue").css("width", speNum).text(searchResponse.results[aV].powerstats.speed+"%");
           d3.append(d3a);
 
-          var p4 = $("<p>").text("Durability: "); 
+          var p4 = $("<p>").attr("id", "styling").text("Durability: "); 
           var durNum = searchResponse.results[aV].powerstats.durability +"%";
           var d4 = $("<div>").attr("class", "progress blue lighten-4 tooltipped").attr("data-position", "top")
           var d4a = $("<div>").attr("class", "determinate blue").css("width", durNum).text(searchResponse.results[aV].powerstats.durability+"%");
           d4.append(d4a);
 
-          var p5 = $("<p>").text("Power: "); 
+          var p5 = $("<p>").attr("id", "styling").text("Power: "); 
           var powNum = searchResponse.results[aV].powerstats.power +"%";
           var d5 = $("<div>").attr("class", "progress blue lighten-4 tooltipped").attr("data-position", "top")
           var d5a = $("<div>").attr("class", "determinate blue").css("width", powNum).text(searchResponse.results[aV].powerstats.power+"%");
           d5.append(d5a);
 
-          var p6 = $("<p>").text("Combat: "); 
+          var p6 = $("<p>").attr("id", "styling").text("Combat: "); 
           var comNum = searchResponse.results[aV].powerstats.combat +"%";
           var d6 = $("<div>").attr("class", "progress blue lighten-4 tooltipped").attr("data-position", "top")
           var d6a = $("<div>").attr("class", "determinate blue").css("width", comNum).text(searchResponse.results[aV].powerstats.combat+"%");
@@ -118,7 +118,7 @@ $.ajax({
           //var p5 = $("<p>").attr("id", "slider5").text("Power: " + searchResponse.results[aV].powerstats.power);
           //var p6 = $("<p>").attr("id", "slider6").text("Combat: " + searchResponse.results[aV].powerstats.combat);
           //Need to finish character Bio. Check on bracket notation
-          var p7 = $("<p>").text("First Apperence: " + searchResponse.results[aV].biography["first-appearance"]);
+          var p7 = $("<p>").attr("id", "styling").text("First Apperence: " + searchResponse.results[aV].biography["first-appearance"]);
           statCol.append(pA, p1, d1, p2, d2, p3, d3, p4, d4, p5, d5, p6, d6, p7);
           imgCol.append(charImg);
       

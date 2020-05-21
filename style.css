@@ -162,3 +162,25 @@ height: 30px;
     font-size: 18px;
 }
 
+
+h4 {
+
+    font-family: 'Anton', sans-serif;;
+    text-align: center;
+    text-decoration: underline;
+
+}
+
+#styling {
+
+    font-family: 'Black Ops One', cursive;
+
+}
+
+#name {
+
+    font-family: 'Black Ops One', cursive;
+    padding-left: 11.3px;
+    text-decoration: underline;
+
+}
