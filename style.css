@@ -127,7 +127,25 @@ body {
 }
 
 h3 {
-    background-color: whitesmoke;
+    background-color: rgb(255, 202, 41);
     text-align: center;
 }
 
+.determinate {
+    width: 0;
+    transition: width 1s ease-in-out;
+    padding: 4px;
+    position: relative;
+    color: #fff;
+    text-align: right;
+    white-space: nowrap;
+}
+.searchFailImg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.progress {
+height: 30px;
+
+}
