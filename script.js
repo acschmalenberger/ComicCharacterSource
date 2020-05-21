@@ -18,7 +18,7 @@ $.ajax({
   console.log(searchResponse);
   //Dynamically creating a div to house the search results title
     $("#body").empty();
-    var searchResultsOutputText = $("<h2>").text("Halt mortal, select the character you meant:");
+    var searchResultsOutputText = $("<h2>").text("Halt mortal, select the character you meant:").attr("class", "halt-text");
     $("#body").append(searchResultsOutputText);
     var row = $("<div>").attr("class", "row");
     $("#body").append(row);
