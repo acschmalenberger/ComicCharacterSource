@@ -16,6 +16,12 @@ body {
 
 }
 
+.animate__animated.animate__bounceInLeft {
+
+    --animate-duration: 2.5s;
+  
+}
+
 
 @media screen and (max-width: 1040px) {
 #top-row {
@@ -25,6 +31,18 @@ body {
     align-items: center;
 
 }
+}
+
+@media screen and (max-width: 600px) and (min-width: 300px) {
+
+    #top-row{
+        flex-direction: column;
+     }
+     
+     #top-col{ 
+        width: 100%;
+     }
+
 }
 
 
@@ -41,12 +59,19 @@ body {
     color: red;
     background-color: white;
     line-height: 1.97;
+    font: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 25px;
     box-sizing: content-box;
-    height: fit-content;
+    /* height: fit-content;
     padding-bottom: 2px; 
     padding-top: 2px; 
-    margin-top: 10px;
+    margin-top: 10px; */
+    height: fit-content !important;
+    padding-bottom: 5px !important;
+    padding-top: 5px !important;
+    margin-top: 6px;
+    margin-bottom: 6px;
+
 }
 
 .waves-effect {
@@ -71,7 +96,7 @@ body {
 
 #search {
     padding-left: 1rem;
-    background: ;
+    background-color: white;
     margin-top: 9px;
 
 }
@@ -109,3 +134,27 @@ body {
     border: solid 5px;
     border-color: black;
 }
+h3 {
+    background-color: rgb(255, 202, 41);
+    text-align: center;
+}
+
+.determinate {
+    width: 0;
+    transition: width 1s ease-in-out;
+    padding: 4px;
+    position: relative;
+    color: #fff;
+    text-align: right;
+    white-space: nowrap;
+}
+.searchFailImg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.progress {
+height: 30px;
+
+}
+
