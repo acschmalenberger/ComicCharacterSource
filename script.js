@@ -18,7 +18,7 @@ $.ajax({
   console.log(searchResponse);
   //Dynamically creating a div to house the search results title
     $("#body").empty();
-    var searchResultsOutputText = $("<h2>").text("Halt mortal, select the character you meant:");
+    var searchResultsOutputText = $("<h3>").text("Halt mortal, select the character you meant:");
     $("#body").append(searchResultsOutputText);
     var row = $("<div>").attr("class", "row");
     $("#body").append(row);
@@ -31,25 +31,48 @@ $.ajax({
         //adding the title to the search array div
         searchResultDiv.append(charNameSearchResult);
         //creating an img for each character in the earch array with a data, alt, and src tag
-        var imgURL = searchResponse.results[i].image.url; 
-        var searchResultImg = $("<img>").attr("src", imgURL).attr("class", "click").attr("style", "width: 100%").attr("data-name", searchResponse.results[i].name).attr("data-id", searchResponse.results[i].id).attr("alt" , searchResponse.results[i].name + " image");
+        var imgURL = searchResponse.results[i].image.url;
+        var num =  $("img").length;
+        var searchResultImg = $("<img>").attr("src", imgURL).attr("class", "click").attr("style", "width: 100%").attr("data-name", searchResponse.results[i].name).attr("data-arrayValue", num).attr("data-id", searchResponse.results[i].id).attr("alt" , searchResponse.results[i].name + " image");
         //adding the img to the search array div
         searchResultDiv.append(searchResultImg);
         $("#body>.row"). append(searchResultDiv);
-//test console log to CYA
+        //test console log to CYA
         //console.log(searchResponse.results[i].name);
         //console.log(searchResponse.results[i].id);
       }
 
       $("img").click(function (event) {
         event.preventDefault ();
+        //userChoice($(this).attr("data-name"));
+        var id = $(this).attr("data-id");
         //console.log($(this).attr("data-id"));
-        userChoice($(this).attr("data-name"));
-        
-       var id = JSON.stringify ($(this).attr("data-id"));
-       charPowerInformation(id);
+        console.log(searchResponse);
 
-        console.log(id + " on click");
+        var charIdName = $("<h2>").text(searchResponse.results[i].name);      
+        var row = $("<div>").attr("class", "row");      
+        var imgCol = $("<div>").attr("class", "col s4");
+        var statCol = $("<div"). attr("class", "col s8");
+        
+        var idImgURL = baseUrl + apiKey +"/" + id + "/image";
+        var charImg = $("<img>").attr("src", idImgURL);
+        
+        $("#body").empty();
+
+          var charInfo = $("<p>").text(idResponse.name)
+          $("#body").append(charIdName);
+          $("#body").append(row);
+          statCol.append(charInfo);
+          imgCol.append(charImg);
+
+
+
+       var id = $(this).attr("data-id");
+       idURL = baseUrl + apiKey +"/" + id + "/powerstats";
+       
+       charPowerInformation(idURL);
+
+        console.log(typeof id);
       
       
       }); 
@@ -65,32 +88,34 @@ $.ajax({
 //   $("#body").append(row);
 // var charInfoDiv = $("<div>").attr("class", "col");
 // row.apped(charInfoDiv, charImg,charStats);
-function charPowerInformation (id){
-  console.log(id+ " ajax pass");
-  $.ajax({
-    //h//ttps://superheroapi.com/api.php/10206952649931006/620/powerstats
-    idurl: baseUrl + apiKey +"/" + id + "/powerstats",
-    method: "GET"
-  }).then(function(idResponse) {
-  //add in a view of the specific character information 
-  $("#body").empty();
-
-  var charIdStats = $("<h2>").text("TEST");
-  $("#body").append(charIdStats);
-
-  var row = $("<div>").attr("class", "row");
-  $("#body").append(row);
-
-  var imgCol = $("<div>").attr("class", "col s4");
-  var statCol = $("<div"). attr("class", "col s8");
+// function charPowerInformation (idURL){
+//   console.log(idURL);
+//   $.ajax({
+//     //https://superheroapi.com/api.php/10206952649931006/620/powerstats
+//     idurl: idURL,
+//     method: "GET"
+//   }).then(function(idResponse) {
+//   //add in a view of the specific character information 
+//   console.log(idResponse);
   
-  var idImgURL = baseUrl + apiKey +"/" + id + "/image";
-  var charImg = $("<img>").attr("src", idImgURL);
+//   $("#body").empty();
 
-var charInfo = $("<p>").text(idResponse.name)
-statCol.append(charInfo);
-imgCol.append(charImg);
-})};
+//   var charIdStats = $("<h2>").text("TEST");
+//   $("#body").append(charIdStats);
+
+//   var row = $("<div>").attr("class", "row");
+//   $("#body").append(row);
+
+//   var imgCol = $("<div>").attr("class", "col s4");
+//   var statCol = $("<div"). attr("class", "col s8");
+  
+//   var idImgURL = baseUrl + apiKey +"/" + id + "/image";
+//   var charImg = $("<img>").attr("src", idImgURL);
+
+// var charInfo = $("<p>").text(idResponse.name)
+// statCol.append(charInfo);
+// imgCol.append(charImg);
+// })};
 
 
 
