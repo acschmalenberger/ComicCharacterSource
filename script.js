@@ -81,6 +81,7 @@ $.ajax({
           var intNum = searchResponse.results[aV].powerstats.intelligence +"%";
           var d1 = $("<div>").attr("class", "progress blue lighten-4 tooltipped").attr("data-position", "top");
           var d1a = $("<div>").attr("class", "determinate blue").css("width", intNum).text(searchResponse.results[aV].powerstats.intelligence+"%");
+          
           d1.append(d1a);
           
           var p2 = $("<p>").text("Strength: "); 
