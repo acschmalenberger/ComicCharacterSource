@@ -19,10 +19,11 @@ $.ajax({
   console.log(searchResponse);
   //Dynamically creating a div to house the search results title
     $("#body").empty();
-    var searchResultsOutputText = $("<h2>").text("Halt mortal, select the character you meant:").attr("class", "halt-text");
-    $("#body").append(searchResultsOutputText);
+    
     var row = $("<div>").attr("class", "row");
     $("#body").append(row);
+    var searchResultsOutputText = $("<h2>").text("Halt mortal, select the character you meant:").attr("class", "halt-text");
+    row.append(searchResultsOutputText);
 
       for (var i = 0; i < searchResponse.results.length; i++) {
         //create a div for each item in the search array
@@ -139,25 +140,32 @@ function userChoice (name) {
   url: omdbQueryURL + name + "&apikey="+ omdbAPIKey,
   method: "GET"
 }).then(function(clickResponse) {
+  var row2 = $("<div>").attr("class", "row row2");
+  $("#body").append(row2);
+  
   var other = $("<h3>").text("Other places you can find this character:");
-        $("#body").append(other);
-var row2 = $("<div>").attr("class", "row row2");
-
-$("#body").append(row2);
+  $(".row2").append(other);
+        
   //clickResponse = //will be its own function
   //character picked on previous screen will be search for OMDB, activated by click
-   for (var j = 0; j < clickResponse.Search.length; j++) {
+  for (var j = 0; j < clickResponse.Search.length; j++) {
         
         console.log(clickResponse.Search[j])
       //set up variables
+        var movieData = $("<div>").attr("class","movieData")
         var movieImgUrl = clickResponse.Search[j].Poster;
-        var movieResultsIMG = $("<img>").attr("src", movieImgUrl).attr("alt", clickResponse.Search[j].Title).attr("style", "width: 25%").attr("class", "movie");
-        // var movieTitle = clickResponse.Search[j].Title
-        // var movieTitle= $("<h6>").attr("class", "movieContent")
+        var movieResultsIMG = $("<img>").attr("src", movieImgUrl).attr("alt", clickResponse.Search[j].Title).attr("class", "movie");
+        
+        var movieTitle = clickResponse.Search[j].Title
+        var movieTitle= $("<h5>").attr("class", "movieContent").text("Title: "+clickResponse.Search[j].Title)
 
-        // var movieRelease = clickResponse.Search[j].Year
-          // movieResultsIMG.append(movieTitle);
-        row2.append(movieResultsIMG);
+        var movieRelease = clickResponse.Search[j].Year
+        var movieRelease= $("<h5>").attr("class", "movieContent").text("Year: "+clickResponse.Search[j].Year)
+
+        movieData.append(movieResultsIMG);
+        movieData.append(movieTitle);
+        movieData.append(movieRelease);
+        $(".row2").append(movieData);
       
         
         }})};
@@ -165,8 +173,6 @@ $("#body").append(row2);
      // console.log(movieResultsDiv)
   //   //other variables that will be used and appended to movie object
   //   
-
-  //   var movieRelease = clickResponse.Search[j].Year
   // }
 
 
