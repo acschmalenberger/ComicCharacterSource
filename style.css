@@ -69,7 +69,7 @@ body {
 
 .brand-logo {
 
-    border: solid;
+    border: double;
     color: red;
     background-color: white;
     line-height: 1.97;
@@ -91,7 +91,8 @@ body {
     color: red;
     box-sizing: content-box;
     padding-bottom: 7px; 
-    padding-top: 7px; 
+    padding-top: 7px;
+    height: fit-content; 
 
 
 }
