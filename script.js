@@ -110,10 +110,13 @@ function userChoice (name) {
   $("#body").append(row2);
   
   var h3 = $("<h3>").text("Other places you can find this character:");
-  $(".row2").append(h3);
-  var row3 = $("<div>").attr("class", "row3 center-align");
-  $(".row2").append(row3);
-        
+    $(".row2").append(h3);
+  
+  var row3 = $("<div>").attr("class", "row3");
+    $(".row2").append(row3);
+
+  var imgCarDiv = $("<div>").attr("class", "carousel");
+      row3.append(imgCarDiv);
   //clickResponse = //will be its own function
   //character picked on previous screen will be search for OMDB, activated by click
   
@@ -124,9 +127,7 @@ function userChoice (name) {
             url: omdbIDURL + imdbID + "&apikey="+ omdbAPIKey,
             method: "GET"
           }).then(function(idResponse) {
-            // console.log(clickResponse.Search[j]);
-
-            console.log(idResponse.Genre);
+      
             if (idResponse.Genre.includes("Action"))
             {
               // var movieResultsIMG = $("<img>").attr("src", idResponse.Poster).attr("alt", idResponse.Title).attr("style", "width: 25%");
@@ -138,22 +139,21 @@ function userChoice (name) {
             //   <a class="carousel-item" href="#three!"><img src="https://lorempixel.com/800/400/food/3"></a>
             //   <a class="carousel-item" href="#four!"><img src="https://lorempixel.com/800/400/food/4"></a>
             // </div>
-
-              var movieData = $("<div>").attr("class","movieData col s12 m6 l4");
               var movieImgUrl = idResponse.Poster;
+
+              var movieData = $("<div>").attr("class","movieData carousel-item");
               var movieResultsIMG = $("<img>").attr("src", movieImgUrl).attr("alt", idResponse.Title).attr("class", "movie");
-              
-              var movieTitle = idResponse.Title;
               var movieTitle= $("<h5>").attr("class", "movieContent").text("Title: "+idResponse.Title);
-      
-              var movieRelease = idResponse.Year;
               var movieRelease= $("<h5>").attr("class", "movieContent").text("Year: "+idResponse.Year);
       
               movieData.append(movieResultsIMG, movieTitle, movieRelease);
               // movieData.append(movieTitle);
               // movieData.append(movieRelease);
-              $(".row3").append(movieData);
+              imgCarDiv.append(movieData);
             } 
+            $(document).ready(function(){
+              $('.carousel').carousel();
+            });
             // else {console.log("bad")};
     })}
   })     
@@ -180,7 +180,4 @@ $("#scour").click(function (event) {
   userInput(characterName);
   });
 
-  $(document).ready(function(){
-    $('.tooltipped').tooltip();
-    $('.collapsible').collapsible();
-  });
+  
