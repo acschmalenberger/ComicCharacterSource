@@ -106,7 +106,7 @@ function userChoice (name) {
   url: omdbQueryURL + name + "&apikey="+ omdbAPIKey,
   method: "GET"
 }).then(function(clickResponse) {
-  var row2 = $("<div>").attr("class", "row row2");
+  var row2 = $("<div>").attr("class",  "row2");
   $("#body").append(row2);
   
   var other = $("<h3>").text("Other places you can find this character:");
