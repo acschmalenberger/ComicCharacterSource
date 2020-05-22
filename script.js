@@ -111,7 +111,7 @@ function userChoice (name) {
   
   var h3 = $("<h3>").text("Other places you can find this character:");
   $(".row2").append(h3);
-  var row3 = $("<div>").attr("class", "row3");
+  var row3 = $("<div>").attr("class", "row3 center-align");
   $(".row2").append(row3);
         
   //clickResponse = //will be its own function
@@ -139,7 +139,7 @@ function userChoice (name) {
             //   <a class="carousel-item" href="#four!"><img src="https://lorempixel.com/800/400/food/4"></a>
             // </div>
 
-              var movieData = $("<div>").attr("class","movieData col");
+              var movieData = $("<div>").attr("class","movieData col s12 m6 l4");
               var movieImgUrl = idResponse.Poster;
               var movieResultsIMG = $("<img>").attr("src", movieImgUrl).attr("alt", idResponse.Title).attr("class", "movie");
               
