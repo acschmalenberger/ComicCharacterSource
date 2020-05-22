@@ -2,7 +2,7 @@ var apiKey = "10206952649931006";
 var baseUrl = "https://superheroapi.com/api.php/";
 var omdbAPIKey= "3e9920ff";
 var omdbQueryURL="https://www.omdbapi.com/?s=";
-var omdbIDURL = " http://www.omdbapi.com/?i=";
+var omdbIDURL = " https://www.omdbapi.com/?i=";
 
 function renderCharCard (attrName, searchResponse, aV){
   var p4 = $("<p>").text(attrName); 
