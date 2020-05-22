@@ -24,7 +24,7 @@ $.ajax({
 }).then(function(searchResponse) {
   if (searchResponse.response === "success") {
   
-  console.log(searchResponse);
+  //console.log(searchResponse);
   //Dynamically creating a div to house the search results title
     $("#body").empty();
     var searchResultsOutputText = $("<h2>").text("Halt mortal, select the character you meant:").attr("class", "halt-text");
@@ -112,26 +112,21 @@ $("#body").append(row2);
   //clickResponse = //will be its own function
   //character picked on previous screen will be search for OMDB, activated by click
    for (var j = 0; j < clickResponse.Search.length; j++) {
-        //var j = 0
-        console.log(clickResponse.Search[j])
-      //set up variables
-        var movieImgUrl = clickResponse.Search[j].Poster;
+        //var movieImgUrl = clickResponse.Search[j].Poster;
         var imdbID = clickResponse.Search[j].imdbID
-        
-        console.log(omdbIDURL + imdbID + "&apikey="+ omdbAPIKey);
+          $.ajax({
+            url: omdbIDURL + imdbID + "&apikey="+ omdbAPIKey,
+            method: "GET"
+          }).then(function(idResponse) {
+            console.log(clickResponse.Search[j]);
 
-    $.ajax({
-      url: omdbIDURL + imdbID + "&apikey="+ omdbAPIKey,
-      method: "GET"
-    }).then(function(idResponse) {
-      
-      console.log(idResponse);
-      if (idResponse.Genre.includes("Action"))
-        {
-          var movieResultsIMG = $("<img>").attr("src", movieImgUrl).attr("alt", clickResponse.Search[j].Title).attr("data-imdbID", clickResponse.Search[j].imdbID).attr("style", "width: 25%");
-          row2.append(movieResultsIMG);
-        } 
-      else {console.log("bad")};
+            console.log(idResponse.Genre);
+            if (idResponse.Genre.includes("Action"))
+            {
+              var movieResultsIMG = $("<img>").attr("src", idResponse.Poster).attr("alt", idResponse.Title).attr("style", "width: 25%");
+              row2.append(movieResultsIMG);
+            } 
+            // else {console.log("bad")};
     })}
   })     
 };
