@@ -174,9 +174,9 @@ height: 30px;
     align-items: baseline;
 }
 
-.movie{
+/* .movie{
     max-height: 350px;
-}
+} */
 
 
 h4 {
@@ -197,4 +197,24 @@ h4 {
     padding-left: 11.3px;
     text-decoration: underline;
 
+}
+
+.carousel {
+    transform: translateY(-250px);
+    height: 1100px;
+    perspective: 600px;
+}
+
+.carousel .carousel-item {
+
+    width: 400px;
+}
+
+.carousel .carousel-item img {
+    width: 100%;
+}
+
+.carousel .carousel-item h5 {
+    margin: 0px;
+    text-align: center;
 }

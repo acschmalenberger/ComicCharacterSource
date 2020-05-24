@@ -12,9 +12,6 @@ function renderCharCard (attrName, searchResponse, aV){
           d4.append(d4a);
           return {body: d4, p: p4};
 }
-//var omdbIMGQueryURL: "http://img.omdbapi.com/?s="
-//https://www.omdbapi.com/?s=thor&apikey=3e9920ff
-//"https://superheroapi.com/api/10206952649931006/search/thor"
 
 function userInput (characterName) {
 
@@ -24,7 +21,6 @@ $.ajax({
 }).then(function(searchResponse) {
   if (searchResponse.response === "success") {
   
-  //console.log(searchResponse);
   //Dynamically creating a div to house the search results title
     $("#body").empty();
     
@@ -47,26 +43,22 @@ $.ajax({
         //adding the img to the search array div
         searchResultDiv.append(searchResultImg);
         $("#body>.row").append(searchResultDiv);
-        //test console log to CYA
-        //console.log(searchResponse.results[i].name);
-        //console.log(searchResponse.results[i].id);
       }}
       else{
-        $("#body>.row").empty();
+        $("#body").empty();
+
+        var stopRow = $("<div>").attr("class", "row");
 
         var stopImg = $("<img>").attr("src", "./assets/Stop.png").attr("class", "searchFailImg");
-        $("#body>.row").append(stopImg);
+        stopRow.append(stopImg);
+        $("#body").append(stopRow);
       };
 
       $("img").click(function (event) {
         event.preventDefault ();
         //passes the attr to the omdb call
         userChoice($(this).attr("data-name"));
-        var aV = $(this).attr("data-arrayValue")
-        //var id = $(this).attr("data-id");
-        //console.log($(this).attr("data-id"));
-        //console.log(searchResponse);
-        
+        var aV = $(this).attr("data-arrayValue");
         
         $("#body>.row").empty();
         //var row = $("<div>").attr("class", "row");      
@@ -79,12 +71,6 @@ $.ajax({
         
           //Need to finish character Bio. Check on bracket notation
           var pA = $("<p>").attr("id", "styling").text("Full Name: " + searchResponse.results[aV].biography["full-name"]);
-
-
-        //   <div class="progress blue lighten-4 tooltipped" data-position="top" data-tooltip="Progress was at 50% when tested">
-				// 	<span>Progress</span>
-				// 	<div class="determinate blue" style="width: 50%; animation: grow 2s;">50%</div>
-        // </div>
         
           var {body:d1, p:p1} = renderCharCard("Intelligence", searchResponse, aV);
           var {body:d2, p:p2} = renderCharCard("Strength", searchResponse, aV);
@@ -130,15 +116,6 @@ function userChoice (name) {
       
             if (idResponse.Genre.includes("Action"))
             {
-              // var movieResultsIMG = $("<img>").attr("src", idResponse.Poster).attr("alt", idResponse.Title).attr("style", "width: 25%");
-              // row2.append(movieResultsIMG);
-             
-            //   <div class="carousel carousel-slider">
-            //   <a class="carousel-item" href="#one!"><img src="https://lorempixel.com/800/400/food/1"></a>
-            //   <a class="carousel-item" href="#two!"><img src="https://lorempixel.com/800/400/food/2"></a>
-            //   <a class="carousel-item" href="#three!"><img src="https://lorempixel.com/800/400/food/3"></a>
-            //   <a class="carousel-item" href="#four!"><img src="https://lorempixel.com/800/400/food/4"></a>
-            // </div>
               var movieImgUrl = idResponse.Poster;
 
               var movieData = $("<div>").attr("class","movieData carousel-item");
