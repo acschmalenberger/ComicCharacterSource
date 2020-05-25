@@ -105,7 +105,6 @@ function userChoice (name) {
 
   
    for (var j = 0; j < clickResponse.Search.length; j++) {
-        //var movieImgUrl = clickResponse.Search[j].Poster;
         var imdbID = clickResponse.Search[j].imdbID
           $.ajax({
             url: omdbIDURL + imdbID + "&apikey="+ omdbAPIKey,
