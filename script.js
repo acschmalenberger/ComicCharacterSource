@@ -70,7 +70,7 @@ $.ajax({
           var charImg = $("<img>").attr("src", searchResponse.results[aV].image.url).attr("style", "width: 100%");
         
           //Need to finish character Bio. Check on bracket notation
-          var pA = $("<p>").attr("id", "styling").text("Full Name: " + searchResponse.results[aV].biography["full-name"]);
+          var pA = $("<p>").attr("id", "styling").attr("class", "rName").text("Real Name: " + searchResponse.results[aV].biography["full-name"]);
         
           var {body:d1, p:p1} = renderCharCard("Intelligence", searchResponse, aV);
           var {body:d2, p:p2} = renderCharCard("Strength", searchResponse, aV);
@@ -79,15 +79,14 @@ $.ajax({
           var {body:d5, p:p5} = renderCharCard("Power", searchResponse, aV);
           var {body:d6, p:p6} = renderCharCard("Combat", searchResponse, aV);
 
-          var p7 = $("<p>").text("First Apperence: " + searchResponse.results[aV].biography["first-appearance"]);
+          var p7 = $("<p>").attr("class", "rName").text("First Apperence: " + searchResponse.results[aV].biography["first-appearance"]);
           statCol.append(pA, p1, d1, p2, d2, p3, d3, p4, d4, p5, d5, p6, d6, p7);
           imgCol.append(charImg);
 
         })})};
 
 function userChoice (name) {
-// var name = $(this).attr("data-name");
-//console.log(name);
+
   $.ajax({
   url: omdbQueryURL + name + "&apikey="+ omdbAPIKey,
   method: "GET"
@@ -103,8 +102,7 @@ function userChoice (name) {
 
   var imgCarDiv = $("<div>").attr("class", "carousel");
       row3.append(imgCarDiv);
-  //clickResponse = //will be its own function
-  //character picked on previous screen will be search for OMDB, activated by click
+
   
    for (var j = 0; j < clickResponse.Search.length; j++) {
         //var movieImgUrl = clickResponse.Search[j].Poster;
@@ -124,28 +122,15 @@ function userChoice (name) {
               var movieRelease= $("<h5>").attr("class", "movieContent").text("Year: "+idResponse.Year);
       
               movieData.append(movieResultsIMG, movieTitle, movieRelease);
-              // movieData.append(movieTitle);
-              // movieData.append(movieRelease);
               imgCarDiv.append(movieData);
             } 
             $(document).ready(function(){
               $('.carousel').carousel();
             });
-            // else {console.log("bad")};
     })}
   })     
 };
-          
-     // console.log(movieResultsDiv)
-  //   //other variables that will be used and appended to movie object
-  //   
-  // }
-
-
-
-//userInput();
-
-//This is to retrieve data for the search bar on the index page. 
+           
 
 $("#scour").click(function (event) {
   //prevents the page from refreshikng when a button is clicked  
