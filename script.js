@@ -12,9 +12,6 @@ function renderCharCard (attrName, searchResponse, aV){
           d4.append(d4a);
           return {body: d4, p: p4};
 }
-//var omdbIMGQueryURL: "http://img.omdbapi.com/?s="
-//https://www.omdbapi.com/?s=thor&apikey=3e9920ff
-//"https://superheroapi.com/api/10206952649931006/search/thor"
 
 function userInput (characterName) {
 
@@ -24,7 +21,6 @@ $.ajax({
 }).then(function(searchResponse) {
   if (searchResponse.response === "success") {
   
-  //console.log(searchResponse);
   //Dynamically creating a div to house the search results title
     $("#body").empty();
     
@@ -47,26 +43,22 @@ $.ajax({
         //adding the img to the search array div
         searchResultDiv.append(searchResultImg);
         $("#body>.row").append(searchResultDiv);
-        //test console log to CYA
-        //console.log(searchResponse.results[i].name);
-        //console.log(searchResponse.results[i].id);
       }}
       else{
-        $("#body>.row").empty();
+        $("#body").empty();
+
+        var stopRow = $("<div>").attr("class", "row");
 
         var stopImg = $("<img>").attr("src", "./assets/Stop.png").attr("class", "searchFailImg");
-        $("#body>.row").append(stopImg);
+        stopRow.append(stopImg);
+        $("#body").append(stopRow);
       };
 
       $("img").click(function (event) {
         event.preventDefault ();
         //passes the attr to the omdb call
         userChoice($(this).attr("data-name"));
-        var aV = $(this).attr("data-arrayValue")
-        //var id = $(this).attr("data-id");
-        //console.log($(this).attr("data-id"));
-        //console.log(searchResponse);
-        
+        var aV = $(this).attr("data-arrayValue");
         
         $("#body>.row").empty();
         //var row = $("<div>").attr("class", "row");      
@@ -79,12 +71,6 @@ $.ajax({
         
           //Need to finish character Bio. Check on bracket notation
           var pA = $("<p>").attr("id", "styling").text("Full Name: " + searchResponse.results[aV].biography["full-name"]);
-
-
-        //   <div class="progress blue lighten-4 tooltipped" data-position="top" data-tooltip="Progress was at 50% when tested">
-				// 	<span>Progress</span>
-				// 	<div class="determinate blue" style="width: 50%; animation: grow 2s;">50%</div>
-        // </div>
         
           var {body:d1, p:p1} = renderCharCard("Intelligence", searchResponse, aV);
           var {body:d2, p:p2} = renderCharCard("Strength", searchResponse, aV);
@@ -110,10 +96,13 @@ function userChoice (name) {
   $("#body").append(row2);
   
   var h3 = $("<h3>").text("Other places you can find this character:");
-  $(".row2").append(h3);
-  var row3 = $("<div>").attr("class", "row3 center-align");
-  $(".row2").append(row3);
-        
+    $(".row2").append(h3);
+  
+  var row3 = $("<div>").attr("class", "row3");
+    $(".row2").append(row3);
+
+  var imgCarDiv = $("<div>").attr("class", "carousel");
+      row3.append(imgCarDiv);
   //clickResponse = //will be its own function
   //character picked on previous screen will be search for OMDB, activated by click
   
@@ -124,36 +113,24 @@ function userChoice (name) {
             url: omdbIDURL + imdbID + "&apikey="+ omdbAPIKey,
             method: "GET"
           }).then(function(idResponse) {
-            // console.log(clickResponse.Search[j]);
-
-            console.log(idResponse.Genre);
+      
             if (idResponse.Genre.includes("Action"))
             {
-              // var movieResultsIMG = $("<img>").attr("src", idResponse.Poster).attr("alt", idResponse.Title).attr("style", "width: 25%");
-              // row2.append(movieResultsIMG);
-             
-            //   <div class="carousel carousel-slider">
-            //   <a class="carousel-item" href="#one!"><img src="https://lorempixel.com/800/400/food/1"></a>
-            //   <a class="carousel-item" href="#two!"><img src="https://lorempixel.com/800/400/food/2"></a>
-            //   <a class="carousel-item" href="#three!"><img src="https://lorempixel.com/800/400/food/3"></a>
-            //   <a class="carousel-item" href="#four!"><img src="https://lorempixel.com/800/400/food/4"></a>
-            // </div>
-
-              var movieData = $("<div>").attr("class","movieData col s12 m6 l4");
               var movieImgUrl = idResponse.Poster;
+
+              var movieData = $("<div>").attr("class","movieData carousel-item");
               var movieResultsIMG = $("<img>").attr("src", movieImgUrl).attr("alt", idResponse.Title).attr("class", "movie");
-              
-              var movieTitle = idResponse.Title;
               var movieTitle= $("<h5>").attr("class", "movieContent").text("Title: "+idResponse.Title);
-      
-              var movieRelease = idResponse.Year;
               var movieRelease= $("<h5>").attr("class", "movieContent").text("Year: "+idResponse.Year);
       
               movieData.append(movieResultsIMG, movieTitle, movieRelease);
               // movieData.append(movieTitle);
               // movieData.append(movieRelease);
-              $(".row3").append(movieData);
+              imgCarDiv.append(movieData);
             } 
+            $(document).ready(function(){
+              $('.carousel').carousel();
+            });
             // else {console.log("bad")};
     })}
   })     
@@ -180,7 +157,4 @@ $("#scour").click(function (event) {
   userInput(characterName);
   });
 
-  $(document).ready(function(){
-    $('.tooltipped').tooltip();
-    $('.collapsible').collapsible();
-  });
+  
