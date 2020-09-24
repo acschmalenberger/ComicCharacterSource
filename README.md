@@ -5,7 +5,7 @@
 
 ## Description
 
-This pages use two RESTful API calls to bring the user data and information about their favorite comic book hero.
+This page uses two RESTful API calls to bring the user data and information about their favorite comic book hero.
 
 ## Current Version 
 
