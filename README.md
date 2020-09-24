@@ -22,7 +22,7 @@ v1.0
                 
 ## Installation
 
-To install this app, just visit the sit: https://acschmalenberger.github.io/Project1/
+To install this app, just visit the site: https://acschmalenberger.github.io/Project1/
 
 ## Usage
 
