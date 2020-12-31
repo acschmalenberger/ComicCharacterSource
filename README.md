@@ -1,9 +1,48 @@
-# Project1
 
-User Story:
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
+![Badge](https://img.shields.io/badge/ReadMeComic_Character_Source-undefined-undefined)
+# Comic Character Source
 
-As a person who would like to know more about Marvel Comics and Movies;
+## Description
 
-I want themed (movie or comic book) recommendations;
+This page uses two RESTful API calls to bring the user data and information about their favorite comic book hero.
 
-So that I can learn more about the entire MCU;
+## Current Version 
+
+v1.0
+
+## Table of Contents
+
+    * Installation
+    * Usage
+    * License
+    * Contributing
+    * User GitHub profile picture
+    * User GitHub email
+                
+## Installation
+
+To install this app, just visit the site: https://acschmalenberger.github.io/Project1/
+
+## Usage
+
+Open Source
+
+## License
+
+Public domain  
+
+## Contributing
+acschmalenberger
+rmeason
+
+
+## Questions
+undefined
+
+## Contact Information
+
+<img src="https://avatars1.githubusercontent.com/u/63681296?v=4" alt="gitHub Avatar" width="25%">
+https://github.com/truittj
+
+
